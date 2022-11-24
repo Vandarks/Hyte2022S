@@ -11,4 +11,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
     }
+
+    // Onnin kommentti, kirjoitettu 24.11.22 @11:33
 }
