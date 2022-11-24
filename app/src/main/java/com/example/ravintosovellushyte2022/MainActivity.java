@@ -2,10 +2,9 @@ package com.example.ravintosovellushyte2022;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
@@ -24,17 +23,19 @@ public class MainActivity extends AppCompatActivity {
         sharedEdit = sharedPref.edit(); //Editor for writing to general sharedPreferences
 
         //Check for first time launch
-        if(sharedPref.getBoolean("FIRST_LAUNCH", true)){
+        if(sharedPref.getString("FIRST_NAME", "") == ""){
             firstTimeSetup();
         }
     }
 
     public void firstTimeSetup(){
         TextView txt = findViewById(R.id.textView);
-        txt.setText("First time user setup required");
+        txt.setText("Main menu here");
         //TODO:First time setup to get required user data then change "FIRST_LAUNCH" false
         //First time setup. New intent -> activity
         //Gather user name, age, sex. Save data and change "FIRST_LAUNCH" false
+        Intent intent = new Intent(MainActivity.this, UserSettingsActivity.class);
+        startActivity(intent);
     }
 
     // Onnin kommentti, kirjoitettu 24.11.22 @11:33
