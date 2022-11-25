@@ -19,21 +19,18 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        sharedPref = getSharedPreferences(GENERAL_PREFS, MODE_PRIVATE); //Accessing shared preferences
+        sharedPref = getApplicationContext().getSharedPreferences(GENERAL_PREFS, MODE_PRIVATE); //Accessing shared preferences
         sharedEdit = sharedPref.edit(); //Editor for writing to general sharedPreferences
 
-        //Check for first time launch
-        if(sharedPref.getString("FIRST_NAME", "") == ""){
-            firstTimeSetup();
-        }
+        //Check for first time launch TODO: Make a way to only do first time setup when necessary (Missing important userinfo for example)
+        firstTimeSetup();
+
+        //TODO: Remove when making UI
+        TextView txt = findViewById(R.id.textView);
+        txt.setText("Main menu here");
     }
 
     public void firstTimeSetup(){
-        TextView txt = findViewById(R.id.textView);
-        txt.setText("Main menu here");
-        //TODO:First time setup to get required user data then change "FIRST_LAUNCH" false
-        //First time setup. New intent -> activity
-        //Gather user name, age, sex. Save data and change "FIRST_LAUNCH" false
         Intent intent = new Intent(MainActivity.this, UserSettingsActivity.class);
         startActivity(intent);
     }
