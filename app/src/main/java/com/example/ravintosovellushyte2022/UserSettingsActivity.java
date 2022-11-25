@@ -38,11 +38,6 @@ public class UserSettingsActivity extends AppCompatActivity {
         sexInput = (RadioGroup) findViewById(R.id.sexGroup);
         saveButton = (Button) findViewById(R.id.saveButton);
 
-
-        //Setting EditText hints from SharedPreferences
-        nameInput.setHint(sharedPref.getString("USER_NAME", "Name"));
-        ageInput.setHint(sharedPref.getString("USER_AGE", "Age"));
-
     }
 
     public void SaveData(View view){
