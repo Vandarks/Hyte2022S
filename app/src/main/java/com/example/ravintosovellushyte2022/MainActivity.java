@@ -32,30 +32,35 @@ public class MainActivity extends AppCompatActivity {
         nutritionTracker = new NutritionTracker(getApplicationContext());
 
         //Check for first time launch TODO: Make a way to only do first time setup when necessary (Missing important userinfo for example)
-        firstTimeSetup();
+        firstTimeSetup(); //Goes to the user settings activity
 
         updateUI();
     }
     @Override
     protected void onResume() {
         super.onResume();
+        //Updates UI when coming back
         updateUI();
     }
 
     public void firstTimeSetup(){
+        //Goes to the user settings activity
         Intent intent = new Intent(MainActivity.this, UserSettingsActivity.class);
         startActivity(intent);
     }
 
     public void updateUI(){
+        //Updates nutritional tracker values from NUTRITION_PREFS
         nutritionTracker.updateFromSavedData();
 
+        //Finds relevant UI element ID's
         TextView dateTxt = findViewById(R.id.datetext);
         TextView caloriesTxt = findViewById(R.id.calories);
         TextView carbsTxt = findViewById(R.id.carbs);
         TextView fatsTxt = findViewById(R.id.fats);
         TextView saltsTxt = findViewById(R.id.salts);
 
+        //Update the contents of the relevant UI elements
         dateTxt.setText(nutritionTracker.getDate());
         caloriesTxt.setText("Calories: " + Float.toString(nutritionTracker.getCalories()));
         carbsTxt.setText("Carbs: " + Float.toString(nutritionTracker.getCarbs()) + " g");
@@ -64,6 +69,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void addCustomFood(View v){
+        //Starts the add custom food activity
         Intent intent = new Intent(MainActivity.this, AddCustomFoodActivity.class);
         MainActivity.this.startActivity(intent);
     }

@@ -24,12 +24,15 @@ public class AddCustomFoodActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_custom_food);
 
+        //Finding relevant UI elements by ID
         addButton = findViewById(R.id.addfood);
         gramsInput = findViewById(R.id.gramsInput);
         caloriesInput = findViewById(R.id.caloriesInput);
         carbsInput = findViewById(R.id.carbsInput);
         fatsInput = findViewById(R.id.fatsInput);
         saltsInput = findViewById(R.id.saltsInput);
+
+        //New nutrition tracker to calculate food stuff
         nutritionTracker = new NutritionTracker(getApplicationContext());
     }
 
@@ -69,8 +72,9 @@ public class AddCustomFoodActivity extends AppCompatActivity {
             salts = Float.parseFloat(saltsInput.getText().toString());
         }
 
-        //Passing values to nutritionTracker to calculate. Saving values
+        //Passing values to nutritionTracker to calculate.
         nutritionTracker.addNutritions(grams, calories, carbs, fats, salts);
+        //Saving values to NUTRITION_PREFS
         nutritionTracker.saveNutritions();
         Toast.makeText(this, "Food added to today's total", Toast.LENGTH_SHORT).show();
         finish();

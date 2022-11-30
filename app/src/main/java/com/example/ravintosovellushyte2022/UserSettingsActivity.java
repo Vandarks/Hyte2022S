@@ -90,6 +90,7 @@ public class UserSettingsActivity extends AppCompatActivity {
     }
 
     public void updateUI(){
+        //Updates hint messages to be currently saved values
         nameInput.setHint(sharedPref.getString("USER_NAME", "Name"));
         ageInput.setHint(sharedPref.getString("USER_AGE", "Age"));
     }

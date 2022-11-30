@@ -31,7 +31,7 @@ public class NutritionTracker {
         calendar = Calendar.getInstance(); //Calendar object to get time
         dateFormat = new SimpleDateFormat("dd/MM/yyyy"); //Date format to format the date
 
-        //Read daily nutrition values from sharedPreferences
+        //Read daily nutrition values from sharedPreferences and get today's date
         updateFromSavedData();
     }
 
@@ -41,14 +41,17 @@ public class NutritionTracker {
         sharedEdit.putFloat(date + "carbs", carbs);
         sharedEdit.putFloat(date + "fats", fats);
         sharedEdit.putFloat(date + "salts", salts);
+        //Apply changes
         sharedEdit.apply();
     }
 
     public void clearToday(){
+        //Clears today's nutritional values
         sharedEdit.remove(date + "calories");
         sharedEdit.remove(date + "carbs");
         sharedEdit.remove(date + "fats");
         sharedEdit.remove(date + "salts");
+        //Apply changes
         sharedEdit.apply();
     }
 
