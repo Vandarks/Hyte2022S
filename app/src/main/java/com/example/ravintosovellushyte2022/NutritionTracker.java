@@ -10,15 +10,16 @@ import java.util.Calendar;
 public class NutritionTracker {
 
     //Variables to store data
-    private float calories; //MM-DD-YYYY eg: 07-10-1996
+    private float calories;
     private float carbs;
     private float fats;
     private float salts;
+    private int timesEaten;
 
     //Variables to get date
     private Calendar calendar;
     private SimpleDateFormat dateFormat;
-    private String date;
+    private String date; //MM-DD-YYYY eg: 07-10-1996
 
     private SharedPreferences sharedPref; //Object to read sharedPreferences
     private SharedPreferences.Editor sharedEdit; //Object to write to sharedPreferences
@@ -41,6 +42,7 @@ public class NutritionTracker {
         sharedEdit.putFloat(date + "carbs", carbs);
         sharedEdit.putFloat(date + "fats", fats);
         sharedEdit.putFloat(date + "salts", salts);
+        sharedEdit.putInt(date + "timesEaten", timesEaten);
         //Apply changes
         sharedEdit.apply();
     }
@@ -51,6 +53,7 @@ public class NutritionTracker {
         sharedEdit.remove(date + "carbs");
         sharedEdit.remove(date + "fats");
         sharedEdit.remove(date + "salts");
+        sharedEdit.remove(date + "timesEaten");
         //Apply changes
         sharedEdit.apply();
     }
@@ -62,6 +65,7 @@ public class NutritionTracker {
         this.carbs += (grams/100)*carbs;
         this.fats += (grams/100)*fats;
         this.salts += (grams/100)*salts;
+        this.timesEaten++;
     }
 
     public void addCalories(float calories){
@@ -76,6 +80,7 @@ public class NutritionTracker {
     public void addSalts(float salts){
         this.salts += salts;
     }
+    public void addTimesEaten() {this.timesEaten++;}
 
     //Get methods
     public String getDate(){
@@ -93,6 +98,7 @@ public class NutritionTracker {
     public float getSalts(){
         return salts;
     }
+    public int getTimesEaten() {return timesEaten;}
 
     //Method to get the current date and currently saved nutritional values
     public void updateFromSavedData(){
@@ -101,5 +107,7 @@ public class NutritionTracker {
         carbs = sharedPref.getFloat(date + "carbs", 0); //..carbs
         fats = sharedPref.getFloat(date + "fats", 0); //..fats
         salts = sharedPref.getFloat(date + "salts", 0); //..salts
+        timesEaten = sharedPref.getInt(date + "timesEaten", 0);
     }
+
 }

@@ -39,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        //Updates UI when coming back
+        //Updates UI and Nutrition tracker when coming back
         updateUI();
     }
 
