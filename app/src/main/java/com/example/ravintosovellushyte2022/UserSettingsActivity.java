@@ -30,15 +30,13 @@ public class UserSettingsActivity extends AppCompatActivity {
     private Button saveButton;
     private Button clearSaveButton;
 
-    public static final String GENERAL_PREFS = "RavintoSovellusHYTE2022General"; //Static name for the shared prefs file for general settings
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_settings);
 
         //Creating access to shared preferences (General)
-        sharedPref = getApplicationContext().getSharedPreferences(GENERAL_PREFS, MODE_PRIVATE);
+        sharedPref = getApplicationContext().getSharedPreferences(MainActivity.GENERAL_PREFS, MODE_PRIVATE);
         sharedEdit = sharedPref.edit();
 
         //Initializing views
@@ -52,14 +50,18 @@ public class UserSettingsActivity extends AppCompatActivity {
     }
 
     public void SaveData(View view){ //TODO: Check that user doesn't try to save empty name or age
-        //Storing user inputted values
+        //Get user inputted values
         String userName = nameInput.getText().toString();
         String userAge = ageInput.getText().toString();
         int userSex = sexInputGroup.getCheckedRadioButtonId(); //example: (R.id.maleButton) is an int
 
         //Saving those values to sharedPreferences
-        sharedEdit.putString("USER_NAME", userName);
-        sharedEdit.putString("USER_AGE", userAge);
+        if(!userName.matches("")) {
+            sharedEdit.putString("USER_NAME", userName);
+        }
+        if(!userAge.matches("")) {
+            sharedEdit.putString("USER_AGE", userAge);
+        }
         //Switch case comparing radiobutton ID's to choose if male or female is checked
         switch (userSex){
             case R.id.maleBox: sharedEdit.putString("USER_SEX", "Male");
