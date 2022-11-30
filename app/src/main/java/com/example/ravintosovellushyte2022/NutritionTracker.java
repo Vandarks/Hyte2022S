@@ -27,16 +27,12 @@ public class NutritionTracker {
         sharedPref = context.getSharedPreferences(MainActivity.NUTRITION_PREFS, Context.MODE_PRIVATE);
         sharedEdit = sharedPref.edit();
 
-        //Getting current date
+        //Creating calendar and date formatter for getting today's date
         calendar = Calendar.getInstance(); //Calendar object to get time
-        dateFormat = new SimpleDateFormat("dd/MM/yyyy"); //Dateformat to format the date
-        date = dateFormat.format(calendar.getTime()); //Saving the formatted date
+        dateFormat = new SimpleDateFormat("dd/MM/yyyy"); //Date format to format the date
 
         //Read daily nutrition values from sharedPreferences
-        calories = sharedPref.getFloat(date + "calories", 0);
-        carbs = sharedPref.getFloat(date + "carbs", 0);
-        fats = sharedPref.getFloat(date + "fats", 0);
-        salts = sharedPref.getFloat(date + "salts", 0);
+        updateFromSavedData();
     }
 
     public void saveNutritions(){
@@ -48,7 +44,23 @@ public class NutritionTracker {
         sharedEdit.apply();
     }
 
+    public void clearToday(){
+        sharedEdit.remove(date + "calories");
+        sharedEdit.remove(date + "carbs");
+        sharedEdit.remove(date + "fats");
+        sharedEdit.remove(date + "salts");
+        sharedEdit.apply();
+    }
+
     //Add methods
+    public void addNutritions(float grams, float calories, float carbs, float fats, float salts){
+        //Calculates nutritions based on per 100 grams values
+        this.calories += (grams/100)*calories;
+        this.carbs += (grams/100)*carbs;
+        this.fats += (grams/100)*fats;
+        this.salts += (grams/100)*salts;
+    }
+
     public void addCalories(float calories){
         this.calories += calories;
     }
@@ -60,13 +72,6 @@ public class NutritionTracker {
     }
     public void addSalts(float salts){
         this.salts += salts;
-    }
-
-    public void addNutritions(int grams, float calories, float carbs, float fats, float salts){
-        this.calories += (grams/100)*calories;
-        this.carbs += (grams/100)*carbs;
-        this.fats += (grams/100)*fats;
-        this.salts += (grams/100)*salts;
     }
 
     //Get methods
@@ -84,5 +89,14 @@ public class NutritionTracker {
     }
     public float getSalts(){
         return salts;
+    }
+
+    //Method to get the current date and currently saved nutritional values
+    public void updateFromSavedData(){
+        date = dateFormat.format(calendar.getTime()); //Getting the date
+        calories = sharedPref.getFloat(date + "calories", 0); //Getting calorie amount from SavedPreferences
+        carbs = sharedPref.getFloat(date + "carbs", 0); //..carbs
+        fats = sharedPref.getFloat(date + "fats", 0); //..fats
+        salts = sharedPref.getFloat(date + "salts", 0); //..salts
     }
 }

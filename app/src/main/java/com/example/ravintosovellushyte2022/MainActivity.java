@@ -5,6 +5,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.os.Handler;
+import android.util.Log;
+import android.view.View;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
@@ -31,24 +34,38 @@ public class MainActivity extends AppCompatActivity {
         //Check for first time launch TODO: Make a way to only do first time setup when necessary (Missing important userinfo for example)
         firstTimeSetup();
 
-        //TODO: Remove when making UI
-        TextView txt = findViewById(R.id.textView);
-        TextView caloriesTxt = findViewById(R.id.calories);
-        TextView carbsTxt = findViewById(R.id.carbs);
-        TextView fatsTxt = findViewById(R.id.fats);
-        TextView saltsTxt = findViewById(R.id.salts);
-
-        txt.setText(nutritionTracker.getDate());
-        caloriesTxt.setText("Calories: " + Float.toString(nutritionTracker.getCalories()) + " grams");
-        carbsTxt.setText("Carbs: " + Float.toString(nutritionTracker.getCarbs()) + " grams");
-        fatsTxt.setText("Fats: " + Float.toString(nutritionTracker.getFats()) + " grams");
-        saltsTxt.setText("Salts: " + Float.toString(nutritionTracker.getSalts()) + " grams");
-
+        updateUI();
+    }
+    @Override
+    protected void onResume() {
+        super.onResume();
+        updateUI();
     }
 
     public void firstTimeSetup(){
         Intent intent = new Intent(MainActivity.this, UserSettingsActivity.class);
         startActivity(intent);
+    }
+
+    public void updateUI(){
+        nutritionTracker.updateFromSavedData();
+
+        TextView dateTxt = findViewById(R.id.datetext);
+        TextView caloriesTxt = findViewById(R.id.calories);
+        TextView carbsTxt = findViewById(R.id.carbs);
+        TextView fatsTxt = findViewById(R.id.fats);
+        TextView saltsTxt = findViewById(R.id.salts);
+
+        dateTxt.setText(nutritionTracker.getDate());
+        caloriesTxt.setText("Calories: " + Float.toString(nutritionTracker.getCalories()));
+        carbsTxt.setText("Carbs: " + Float.toString(nutritionTracker.getCarbs()) + " g");
+        fatsTxt.setText("Fats: " + Float.toString(nutritionTracker.getFats()) + " g");
+        saltsTxt.setText("Salts: " + Float.toString(nutritionTracker.getSalts()) + " g");
+    }
+
+    public void addCustomFood(View v){
+        Intent intent = new Intent(MainActivity.this, AddCustomFoodActivity.class);
+        MainActivity.this.startActivity(intent);
     }
 
     // Onnin kommentti, kirjoitettu 24.11.22 @11:33

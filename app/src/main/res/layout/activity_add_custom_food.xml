@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AddCustomFoodActivity">
+
+    <TextView
+        android:id="@+id/headline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Add the amount of food eaten\nand the per 100 grams nutritional values\nfrom the food packaging"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.16000003" />
+
+    <TextView
+        android:id="@+id/gramsText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:text="Grams"
+        app:layout_constraintBottom_toBottomOf="@+id/gramsInput"
+        app:layout_constraintEnd_toStartOf="@+id/gramsInput"
+        app:layout_constraintTop_toTopOf="@+id/gramsInput" />
+
+    <TextView
+        android:id="@+id/caloriesText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:text="Calories"
+        app:layout_constraintBottom_toBottomOf="@+id/caloriesInput"
+        app:layout_constraintEnd_toStartOf="@+id/caloriesInput"
+        app:layout_constraintTop_toBottomOf="@+id/gramsInput" />
+
+    <TextView
+        android:id="@+id/carbsText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:text="Carbs"
+        app:layout_constraintBottom_toBottomOf="@+id/carbsInput"
+        app:layout_constraintEnd_toStartOf="@+id/carbsInput"
+        app:layout_constraintTop_toBottomOf="@+id/caloriesInput" />
+
+    <TextView
+        android:id="@+id/fatsText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:text="Fats"
+        app:layout_constraintBottom_toBottomOf="@+id/fatsInput"
+        app:layout_constraintEnd_toStartOf="@+id/fatsInput"
+        app:layout_constraintTop_toBottomOf="@+id/carbsInput" />
+
+    <TextView
+        android:id="@+id/saltsText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:text="Salts"
+        app:layout_constraintBottom_toBottomOf="@+id/saltsInput"
+        app:layout_constraintEnd_toStartOf="@+id/saltsInput"
+        app:layout_constraintTop_toBottomOf="@+id/fatsInput" />
+
+    <EditText
+        android:id="@+id/gramsInput"
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
+        android:layout_margin="16dp"
+        android:ems="8"
+        android:hint="0"
+        android:inputType="number|numberDecimal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/headline" />
+
+    <EditText
+        android:id="@+id/caloriesInput"
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
+        android:layout_margin="16dp"
+        android:ems="8"
+        android:hint="0"
+        android:inputType="number|numberDecimal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/gramsInput" />
+
+    <EditText
+        android:id="@+id/carbsInput"
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
+        android:layout_margin="16dp"
+        android:ems="8"
+        android:hint="0"
+        android:inputType="number|numberDecimal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/caloriesInput" />
+
+    <EditText
+        android:id="@+id/fatsInput"
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
+        android:layout_margin="16dp"
+        android:ems="8"
+        android:hint="0"
+        android:inputType="number|numberDecimal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/carbsInput" />
+
+    <EditText
+        android:id="@+id/saltsInput"
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
+        android:layout_margin="16dp"
+        android:ems="8"
+        android:hint="0"
+        android:inputType="number|numberDecimal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/fatsInput" />
+
+    <Button
+        android:id="@+id/addfood"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="saveData"
+        android:text="Add food"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/saltsInput" />
+
+    <Button
+        android:id="@+id/cleartoday"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="clearToday"
+        android:text="clear today"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/addfood" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
