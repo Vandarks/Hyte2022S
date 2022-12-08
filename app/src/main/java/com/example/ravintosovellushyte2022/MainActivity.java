@@ -2,6 +2,7 @@ package com.example.ravintosovellushyte2022;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -31,8 +32,10 @@ public class MainActivity extends AppCompatActivity {
         //Create nutritionTracker
         nutritionTracker = new NutritionTracker(getApplicationContext());
 
-        //Check for first time launch TODO: Make a way to only do first time setup when necessary (Missing important userinfo for example)
-        firstTimeSetup(); //Goes to the user settings activity
+        //Check for first time launch
+        if(sharedPref.getBoolean("FIRST_TIME_SETUP", true)) {
+            firstTimeSetup(); //Goes to the user settings activity
+        }
 
         updateUI();
     }
@@ -47,6 +50,10 @@ public class MainActivity extends AppCompatActivity {
         //Goes to the user settings activity
         Intent intent = new Intent(MainActivity.this, UserSettingsActivity.class);
         startActivity(intent);
+    }
+
+    public void clickSettings(View v) {
+        firstTimeSetup();
     }
 
     public void updateUI(){

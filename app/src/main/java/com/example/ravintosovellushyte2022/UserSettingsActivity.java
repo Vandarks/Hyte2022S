@@ -2,6 +2,7 @@ package com.example.ravintosovellushyte2022;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -49,7 +50,9 @@ public class UserSettingsActivity extends AppCompatActivity {
         updateUI();
     }
 
-    public void SaveData(View view){ //TODO: Check that user doesn't try to save empty name or age
+    @SuppressLint("NonConstantResourceId")
+    public void SaveData(View view){
+
         //Get user inputted values
         String userName = nameInput.getText().toString();
         String userAge = ageInput.getText().toString();
@@ -72,9 +75,16 @@ public class UserSettingsActivity extends AppCompatActivity {
                 Toast.makeText(this, "Something went wrong with saving user sex", Toast.LENGTH_SHORT).show();
         }
         //Success! apply, message and return to previous activity
+        sharedEdit.putBoolean("FIRST_TIME_SETUP", false);
         sharedEdit.apply();
-        Toast.makeText(this, "Data Saved!", Toast.LENGTH_SHORT).show();
-        finish();
+        if(sharedPref.getString("USER_NAME", "") == "" || sharedPref.getString("USER_AGE", "") == "" || sharedPref.getString("USER_SEX", "") ==  "" ) { //Checks for missing user information
+            Toast.makeText(this, "Missing name/age!", Toast.LENGTH_SHORT).show();
+            sharedEdit.clear();
+            sharedEdit.apply();
+        } else {
+            Toast.makeText(this, "Data Saved!", Toast.LENGTH_SHORT).show();
+            finish();
+        }
     }
 
     public void clearSaveData(View view){

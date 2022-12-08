@@ -85,4 +85,7 @@ public class AddCustomFoodActivity extends AppCompatActivity {
         Toast.makeText(this, "Today's nutritional values cleared", Toast.LENGTH_SHORT).show();
         finish();
     }
+    public void fuckGoBack(View v) {
+        finish();
+    }
 }

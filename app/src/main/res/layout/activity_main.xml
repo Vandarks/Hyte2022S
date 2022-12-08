@@ -139,7 +139,7 @@
             android:id="@+id/userSettingsButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="User Settings" />
+            android:text="User Settings"/>
     </com.google.android.material.tabs.TabLayout>
 
     <ProgressBar
