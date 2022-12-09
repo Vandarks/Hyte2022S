@@ -15,6 +15,11 @@ public class NutritionTracker {
     private float fats;
     private float salts;
     private int timesEaten;
+    private float previousCalories;
+    private float previousCarbs;
+    private float previousFats;
+    private float previousSalts;
+    private float previousGrams;
 
     //Variables to get date
     private Calendar calendar;
@@ -43,6 +48,11 @@ public class NutritionTracker {
         sharedEdit.putFloat(date + "fats", fats);
         sharedEdit.putFloat(date + "salts", salts);
         sharedEdit.putInt(date + "timesEaten", timesEaten);
+        sharedEdit.putFloat(date + "previousCalories", previousCalories);
+        sharedEdit.putFloat(date + "previousCarbs", previousCarbs);
+        sharedEdit.putFloat(date + "previousFats", previousFats);
+        sharedEdit.putFloat(date + "previousSalts", previousSalts);
+        sharedEdit.putFloat(date + "previousGrams", previousGrams);
         //Apply changes
         sharedEdit.apply();
     }
@@ -54,6 +64,12 @@ public class NutritionTracker {
         sharedEdit.remove(date + "fats");
         sharedEdit.remove(date + "salts");
         sharedEdit.remove(date + "timesEaten");
+        sharedEdit.remove(date + "previousCalories");
+        sharedEdit.remove(date + "previousCarbs");
+        sharedEdit.remove(date + "previousFats");
+        sharedEdit.remove(date + "previousSalts");
+        sharedEdit.remove(date + "previousGrams");
+
         //Apply changes
         sharedEdit.apply();
     }
@@ -66,6 +82,44 @@ public class NutritionTracker {
         this.fats += (grams/100)*fats;
         this.salts += (grams/100)*salts;
         this.timesEaten++;
+        this.previousCalories = (grams/100)*calories;
+        this.previousCarbs = (grams/100)*carbs;
+        this.previousFats = (grams/100)*fats;
+        this.previousSalts = (grams/100)*salts;
+        this.previousGrams = grams;
+        saveNutritions();
+    }
+    public void editNutritions(float grams, float calories, float carbs, float fats, float salts){
+        //Calculates nutritions based on per 100 grams values
+        float caloriesNew = calories - getPreviousCalories();
+        float carbsNew = carbs - getPreviousCarbs();
+        float fatsNew = fats - getPreviousFats();
+        float saltsNew = salts - getPreviousSalts();
+        this.previousCalories = (grams/100)*calories;
+        this.previousCarbs = (grams/100)*carbs;
+        this.previousFats = (grams/100)*fats;
+        this.previousSalts = (grams/100)*salts;
+        this.previousGrams = grams;
+        this.calories += (grams/100)*caloriesNew;
+        this.carbs += (grams/100)*carbsNew;
+        this.fats += (grams/100)*fatsNew;
+        this.salts += (grams/100)*saltsNew;
+        saveNutritions();
+    }
+
+    public void removeLastMeal(float grams, float calories, float carbs, float fats,float salts){
+        this.calories -= (grams/100)*calories;
+        this.carbs -= (grams/100)*carbs;
+        this.fats -= (grams/100)*fats;
+        this.salts -= (grams/100)*salts;
+        this.timesEaten--;
+        previousGrams = 0;
+        previousCalories = 0;
+        previousCarbs = 0;
+        previousFats = 0;
+        previousSalts = 0;
+
+        saveNutritions();
     }
 
     public void addCalories(float calories){
@@ -99,6 +153,17 @@ public class NutritionTracker {
         return salts;
     }
     public int getTimesEaten() {return timesEaten;}
+    public float getPreviousCalories(){
+        return previousCalories;
+    }
+    public float getPreviousCarbs(){ return previousCarbs;}
+    public float getPreviousFats(){
+        return previousFats;
+    }
+    public float getPreviousSalts(){
+        return previousSalts;
+    }
+    public float getPreviousGrams() { return previousGrams;}
 
     //Method to get the current date and currently saved nutritional values
     public void updateFromSavedData(){
@@ -107,7 +172,11 @@ public class NutritionTracker {
         carbs = sharedPref.getFloat(date + "carbs", 0); //..carbs
         fats = sharedPref.getFloat(date + "fats", 0); //..fats
         salts = sharedPref.getFloat(date + "salts", 0); //..salts
+        previousCalories = sharedPref.getFloat(date + "previousCalories", 0); //Getting calorie amount from SavedPreferences
+        previousCarbs = sharedPref.getFloat(date + "previousCarbs", 0); //..carbs
+        previousFats = sharedPref.getFloat(date + "previousFats", 0); //..fats
+        previousSalts = sharedPref.getFloat(date + "previousSalts", 0); //..salts
+        previousGrams = sharedPref.getFloat(date + "previousGrams", 0);
         timesEaten = sharedPref.getInt(date + "timesEaten", 0);
     }
-
 }

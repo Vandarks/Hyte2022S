@@ -62,8 +62,10 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void clickSettings(View v) {
-        firstTimeSetup();
+    public void editMeal(View v) {
+        Intent intent = new Intent(MainActivity.this, AddCustomFoodActivity.class);
+        intent.putExtra("EDIT_MEAL", true);
+        startActivity(intent);
     }
 
     public void updateUI(){
@@ -146,6 +148,7 @@ public class MainActivity extends AppCompatActivity {
     public void addCustomFood(View v){
         //Starts the add custom food activity
         Intent intent = new Intent(MainActivity.this, AddCustomFoodActivity.class);
+        intent.putExtra("EDIT_MEAL", false);
         MainActivity.this.startActivity(intent);
     }
 
