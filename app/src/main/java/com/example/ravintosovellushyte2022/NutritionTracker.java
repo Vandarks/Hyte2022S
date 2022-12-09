@@ -109,7 +109,9 @@ public class NutritionTracker {
         this.carbs -= (grams/100)*carbs;
         this.fats -= (grams/100)*fats;
         this.salts -= (grams/100)*salts;
-        this.timesEaten--;
+        if(this.timesEaten > 0) {
+            this.timesEaten--;
+        }
         previousGrams = 0;
         previousCalories = 0;
         previousCarbs = 0;
