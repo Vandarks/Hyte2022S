@@ -7,7 +7,7 @@
     tools:context=".MainActivity">
 
     <TextView
-        android:id="@+id/calProcent"
+        android:id="@+id/calPercent"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="TextView"
@@ -15,11 +15,11 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.926"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.227" />
+        app:layout_constraintTop_toTopOf="@+id/calories"
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
-        android:id="@+id/carbsProcent"
+        android:id="@+id/carbsPercent"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="TextView"
@@ -27,11 +27,11 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.926"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/calProcent"
-        app:layout_constraintVertical_bias="0.124" />
+        app:layout_constraintTop_toTopOf="@+id/carbs"
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
-        android:id="@+id/fatsProcent"
+        android:id="@+id/fatsPercent"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="TextView"
@@ -39,8 +39,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.926"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/carbsProcent"
-        app:layout_constraintVertical_bias="0.145" />
+        app:layout_constraintTop_toTopOf="@+id/fats"
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/datetext"
@@ -76,36 +76,34 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.09"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/calories"
-        app:layout_constraintVertical_bias="0.08" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.325" />
 
     <TextView
         android:id="@+id/fats"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="32dp"
-        android:layout_marginTop="50dp"
         android:text="Fats"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.09"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/carbs"
-        app:layout_constraintVertical_bias="0.08" />
+        app:layout_constraintVertical_bias="0.45"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/salts"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="32dp"
-        android:layout_marginTop="50dp"
         android:text="Salts"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.09"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/fats"
-        app:layout_constraintVertical_bias="0.08" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.5725" />
 
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/tabLayout"
@@ -147,52 +145,55 @@
         style="?android:attr/progressBarStyleHorizontal"
         android:layout_width="125dp"
         android:layout_height="wrap_content"
+        android:max="100"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.68"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.23" />
+        app:layout_constraintTop_toTopOf="@+id/calories"
+        app:layout_constraintVertical_bias="0.0" />
 
     <ProgressBar
         android:id="@+id/carbsBar"
         style="?android:attr/progressBarStyleHorizontal"
         android:layout_width="125dp"
         android:layout_height="wrap_content"
+        android:max="100"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.68"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/calBar"
-        app:layout_constraintVertical_bias="0.129" />
+        app:layout_constraintTop_toTopOf="@+id/carbs"
+        app:layout_constraintVertical_bias="0.0" />
 
     <ProgressBar
         android:id="@+id/saltsBar"
         style="?android:attr/progressBarStyleHorizontal"
         android:layout_width="125dp"
         android:layout_height="wrap_content"
+        android:max="100"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.68"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/fatsBar"
-        app:layout_constraintVertical_bias="0.156" />
+        app:layout_constraintTop_toTopOf="@+id/salts"
+        app:layout_constraintVertical_bias="0.0" />
 
     <ProgressBar
         android:id="@+id/fatsBar"
         style="?android:attr/progressBarStyleHorizontal"
         android:layout_width="125dp"
-        android:max="100"
         android:layout_height="wrap_content"
+        android:max="100"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.68"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/carbsBar"
-        app:layout_constraintVertical_bias="0.153" />
+        app:layout_constraintTop_toTopOf="@+id/fats"
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
-        android:id="@+id/saltsProcent"
+        android:id="@+id/saltsPercent"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="TextView"
@@ -200,8 +201,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.926"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/fatsProcent"
-        app:layout_constraintVertical_bias="0.149" />
+        app:layout_constraintTop_toTopOf="@+id/salts"
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/MealTV"
@@ -232,6 +233,7 @@
         android:id="@+id/editMealButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:onClick="clickSettings"
         android:text="Edit Meal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -241,7 +243,7 @@
         app:layout_constraintVertical_bias="0.878" />
 
     <TextView
-        android:id="@+id/mealCounterTV"
+        android:id="@+id/mealCounter"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -250,5 +252,42 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/datetext"
         app:layout_constraintVertical_bias="0.765" />
+
+    <com.google.android.material.tabs.TabLayout
+        android:layout_width="409dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0">
+
+        <com.google.android.material.tabs.TabItem
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Monday" />
+
+        <com.google.android.material.tabs.TabItem
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Tuesday" />
+
+        <com.google.android.material.tabs.TabItem
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Wednesday" />
+    </com.google.android.material.tabs.TabLayout>
+
+    <ImageView
+        android:id="@+id/alertImage"
+        android:layout_width="68dp"
+        android:layout_height="62dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.896"
+        app:srcCompat="@drawable/redwarning" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
