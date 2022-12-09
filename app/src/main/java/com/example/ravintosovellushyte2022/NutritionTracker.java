@@ -91,19 +91,16 @@ public class NutritionTracker {
     }
     public void editNutritions(float grams, float calories, float carbs, float fats, float salts){
         //Calculates nutritions based on per 100 grams values
-        float caloriesNew = calories - getPreviousCalories();
-        float carbsNew = carbs - getPreviousCarbs();
-        float fatsNew = fats - getPreviousFats();
-        float saltsNew = salts - getPreviousSalts();
-        this.previousCalories = (grams/100)*calories;
-        this.previousCarbs = (grams/100)*carbs;
-        this.previousFats = (grams/100)*fats;
-        this.previousSalts = (grams/100)*salts;
+
+        this.calories = (this.calories - (this.getPreviousGrams()/100) * this.getPreviousCalories())+ (grams/100)*calories;
+        this.carbs = (this.carbs - (this.getPreviousGrams()/100) * this.getPreviousCarbs())+ (grams/100)*carbs;
+        this.fats = (this.fats - (this.getPreviousGrams()/100) * this.getPreviousFats())+ (grams/100)*fats;
+        this.salts = (this.salts - (this.getPreviousGrams()/100) * this.getPreviousSalts())+ (grams/100)*salts;
+        this.previousCalories = calories;
+        this.previousCarbs = carbs;
+        this.previousFats = fats;
+        this.previousSalts = salts;
         this.previousGrams = grams;
-        this.calories += (grams/100)*caloriesNew;
-        this.carbs += (grams/100)*carbsNew;
-        this.fats += (grams/100)*fatsNew;
-        this.salts += (grams/100)*saltsNew;
         saveNutritions();
     }
 
