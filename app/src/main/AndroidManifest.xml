@@ -13,14 +13,21 @@
         android:theme="@style/Theme.RavintoSovellusHyte2022"
         tools:targetApi="31">
         <activity
-            android:name=".HistoryListActivity"
+            android:name=".NewMealActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".DetailsActivity"
+            android:name=".MealDetailActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".SavedMealsActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"

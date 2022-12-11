@@ -21,6 +21,8 @@ public class NutritionTracker {
     private float previousSalts;
     private float previousGrams;
 
+    private String[][] history;
+
     //Variables to get date
     private Calendar calendar;
     private SimpleDateFormat dateFormat;
@@ -36,6 +38,7 @@ public class NutritionTracker {
         //Creating calendar and date formatter for getting today's date
         calendar = Calendar.getInstance(); //Calendar object to get time
         dateFormat = new SimpleDateFormat("dd/MM/yyyy"); //Date format to format the date
+
 
         //Read daily nutrition values from sharedPreferences and get today's date
         updateFromSavedData();
@@ -163,6 +166,19 @@ public class NutritionTracker {
         return previousSalts;
     }
     public float getPreviousGrams() { return previousGrams;}
+    public float getPremadeCalories() {return sharedPref.getFloat("premadeCalories", 0);}
+    public float getPremadeCarbs() {return sharedPref.getFloat("premadeCarbs", 0);}
+    public float getPremadeFats() {return sharedPref.getFloat("premadeFats", 0);}
+    public float getPremadeSalts() {return sharedPref.getFloat("premadeSalts", 0);}
+
+
+
+
+    //for history tab, unused yet
+    public int getDay() {return calendar.get(Calendar.DAY_OF_MONTH);}
+    public int getMonth() {return calendar.get(Calendar.MONTH);}
+    public int getYear() {return calendar.get(Calendar.YEAR);}
+
 
     //Method to get the current date and currently saved nutritional values
     public void updateFromSavedData(){
@@ -178,4 +194,5 @@ public class NutritionTracker {
         previousGrams = sharedPref.getFloat(date + "previousGrams", 0);
         timesEaten = sharedPref.getInt(date + "timesEaten", 0);
     }
+
 }

@@ -5,25 +5,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/celeste"
-    tools:context=".AddCustomFoodActivity">
-
-
-    <Button
-        android:id="@+id/btnback"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:onClick="fuckGoBack"
-        android:text="Back"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    tools:context=".NewMealActivity">
 
     <TextView
         android:id="@+id/headline"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Add the amount of food eaten\nand the per 100 grams nutritional values\nfrom the food packaging"
+        android:text="Add the food name\nand the per 100 grams nutritional values\nfrom the food packaging"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -31,11 +19,11 @@
         app:layout_constraintVertical_bias="0.16000003" />
 
     <TextView
-        android:id="@+id/gramsText"
+        android:id="@+id/nameText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="5dp"
-        android:text="Grams"
+        android:text="Name"
         app:layout_constraintBottom_toBottomOf="@+id/mealNameInput"
         app:layout_constraintEnd_toStartOf="@+id/mealNameInput"
         app:layout_constraintTop_toTopOf="@+id/mealNameInput" />
@@ -81,13 +69,12 @@
         app:layout_constraintTop_toBottomOf="@+id/fatsInput" />
 
     <EditText
-        android:id="@+id/gramsInput"
+        android:id="@+id/mealNameInput"
         android:layout_width="wrap_content"
         android:layout_height="48dp"
         android:layout_margin="16dp"
         android:ems="8"
-        android:hint="0"
-        android:inputType="number|numberDecimal"
+        android:hint="type here"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/headline" />
@@ -144,7 +131,7 @@
         android:id="@+id/addfood"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:onClick="saveData"
+        android:onClick="clearToday"
         android:text="Add food"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -152,39 +139,15 @@
         app:layout_constraintTop_toBottomOf="@+id/saltsInput" />
 
     <Button
-        android:id="@+id/cleartoday"
+        android:id="@+id/btnCancel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:onClick="clearToday"
-        android:text="clear today"
+        android:onClick="fuckGoBack"
+        android:text="cancel"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/addfood" />
-
-    <Button
-        android:id="@+id/removeMealButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:enabled="false"
-        android:onClick="removeMeal"
-        android:text="Remove Meal"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/addfood" />
-
-    <Button
-        android:id="@+id/editLastButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:onClick="editFood"
-        android:text="Edit Food"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/saltsInput" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -102,8 +102,8 @@ public class MainActivity extends AppCompatActivity {
         //Finds relevant UI element ID's
         TextView dateTxt = findViewById(R.id.datetext);
         TextView caloriesTxt = findViewById(R.id.calories);
-        TextView carbsTxt = findViewById(R.id.carbs);
         TextView fatsTxt = findViewById(R.id.fats);
+        TextView carbsTxt = findViewById(R.id.carbs);
         TextView saltsTxt = findViewById(R.id.salts);
         TextView caloriesPercent = findViewById(R.id.calPercent);
         TextView carbsPercent = findViewById(R.id.carbsPercent);
@@ -149,6 +149,11 @@ public class MainActivity extends AppCompatActivity {
         //Starts the add custom food activity
         Intent intent = new Intent(MainActivity.this, AddCustomFoodActivity.class);
         intent.putExtra("EDIT_MEAL", false);
+        MainActivity.this.startActivity(intent);
+    }
+
+    public void savedMeals(View v) {
+        Intent intent = new Intent(MainActivity.this, SavedMealsActivity.class);
         MainActivity.this.startActivity(intent);
     }
 

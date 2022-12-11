@@ -43,6 +43,7 @@ public class AddCustomFoodActivity extends AppCompatActivity {
 
         Bundle b = getIntent().getExtras();
         boolean edit = b.getBoolean("EDIT_MEAL", false);
+        boolean premade = b.getBoolean("PREMADE", false);
         if (edit){
             float grams = nutritionTracker.getPreviousGrams();
             float calories = nutritionTracker.getPreviousCalories();
@@ -63,6 +64,26 @@ public class AddCustomFoodActivity extends AppCompatActivity {
             addButton.setEnabled(false);
             clearTodayButton.setAlpha(0f);
             clearTodayButton.setEnabled(false);
+        } else if (premade) {
+            float grams = 0;
+            float calories = nutritionTracker.getPremadeCalories();
+            float carbs = nutritionTracker.getPremadeCarbs();
+            float fats = nutritionTracker.getPremadeFats();
+            float salts = nutritionTracker.getPremadeSalts();
+            gramsInput.setText(String.format("%.2f", grams));
+            caloriesInput.setText(String.format("%.2f", calories));
+            carbsInput.setText(String.format("%.2f", carbs));
+            fatsInput.setText(String.format("%.2f", fats));
+            saltsInput.setText(String.format("%.2f", salts));
+
+            removeMealButton.setAlpha(0f);
+            removeMealButton.setEnabled(false);
+            editLastButton.setAlpha(0f);
+            editLastButton.setEnabled(false);
+            addButton.setAlpha(1f);
+            addButton.setEnabled(true);
+            clearTodayButton.setAlpha(1f);
+            clearTodayButton.setEnabled(true);
         } else {
 
             removeMealButton.setAlpha(0f);
@@ -201,6 +222,10 @@ public class AddCustomFoodActivity extends AppCompatActivity {
         nutritionTracker.editNutritions(grams, calories, carbs, fats, salts);
         Toast.makeText(this, "Previous meal edited", Toast.LENGTH_SHORT).show();
         finish();
+    }
+
+    public void addMealNutritions() {
+
     }
 
     public void fuckGoBack(View v) {
