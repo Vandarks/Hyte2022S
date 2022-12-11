@@ -2,10 +2,7 @@
     <string name="app_name">RavintoSovellusHyte2022</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <color name="lightGreen">#1DD3B0</color>
-    <color name="white">#FFFFFF</color>
-    <color name="sapphire">#086375</color>
-    <color name="purple">#361D2E</color>
+
 
 
 </resources>

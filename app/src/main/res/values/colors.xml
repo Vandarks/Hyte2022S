@@ -7,4 +7,14 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="sapphire">#086375</color>
+    <color name="darkPurple">#361D2E</color>
+    <color name="blizzard">#AEECEF</color>
+    <color name="celeste">#CDFFF9</color>
+    <color name="royalBlue">#01295F</color>
+    <color name="yaleBlue">#084B83</color>
+    <color name="sacramentoGreen">#093824</color>
+    <color name="battleShipGray">#818479</color>
+    <color name="green">#FF0C472E</color>
+    <color name="dartMouthGreen">#067432</color>
 </resources>
