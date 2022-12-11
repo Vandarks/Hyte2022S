@@ -33,10 +33,10 @@ public class MealDetailActivity extends AppCompatActivity {
         TextView mealSalts = findViewById(R.id.mealSalts);
 
         String name = MealList.getInstance().getMeal(i).getName();
-        String calories = Float.toString(MealList.getInstance().getMeal(i).getCalories()) + " kcal";
-        String fats = Float.toString(MealList.getInstance().getMeal(i).getFats()) + " g";
-        String carbs = Float.toString(MealList.getInstance().getMeal(i).getCarbs()) + " g";
-        String salts = Float.toString(MealList.getInstance().getMeal(i).getSalts()) + " g";
+        String calories = "Calories: " + Float.toString(MealList.getInstance().getMeal(i).getCalories()) + " kcal";
+        String fats = "Fats: " + Float.toString(MealList.getInstance().getMeal(i).getFats()) + " g";
+        String carbs = "Carbs: " +Float.toString(MealList.getInstance().getMeal(i).getCarbs()) + " g";
+        String salts = "Salts: " + Float.toString(MealList.getInstance().getMeal(i).getSalts()) + " g";
 
         mealName.setText(name);
         mealCalories.setText(calories);

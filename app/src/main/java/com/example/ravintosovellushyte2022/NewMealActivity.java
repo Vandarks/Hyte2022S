@@ -4,11 +4,16 @@ import static com.example.ravintosovellushyte2022.MainActivity.MEAL_PREFS;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Button;
 import android.widget.EditText;
+
+import com.google.gson.Gson;
+
+import java.util.ArrayList;
 
 public class NewMealActivity extends AppCompatActivity {
 
@@ -22,9 +27,12 @@ public class NewMealActivity extends AppCompatActivity {
     private EditText saltsInput;
     private Button cancelButton;
 
+    ArrayList<Meal> arrayList;
+
 
     private SharedPreferences sharedPref; //Object to read sharedPreferences
     private SharedPreferences.Editor sharedEdit;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -84,13 +92,20 @@ public class NewMealActivity extends AppCompatActivity {
         } else {
             salts = Float.parseFloat(saltsInput.getText().toString());
         }
-        sharedEdit.putString(name+"premadeName", name);
-        sharedEdit.putFloat(name + "premadeCalories", calories);
-        sharedEdit.putFloat(name + "premadeCarbs", carbs);
-        sharedEdit.putFloat(name + "premadeFats", fats);
-        sharedEdit.putFloat(name + "premadeSalts", salts);
-        sharedEdit.apply();
+
         Log.d("Debug", "Called savePremadeNutritions");
-        mealList.saveToList(name);
+
+        Gson gson = new Gson();
+        arrayList.add(new Meal(name, calories, fats, carbs, salts));
+        String json = gson.toJson(arrayList);
+        sharedEdit.putString("meal_data", json);
+        sharedEdit.apply();
+        Log.d("Debug", "data imported");
+
+
+
+        Intent intent = new Intent(NewMealActivity.this, AddCustomFoodActivity.class);
+
     }
+
 }

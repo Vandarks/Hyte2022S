@@ -3,15 +3,14 @@ package com.example.ravintosovellushyte2022;
 import android.content.Context;
 import android.content.SharedPreferences;
 
+import java.util.ArrayList;
+
 public class Meal {
     private String name;
     private float calories;
     private float fats;
     private float carbs;
     private float salts;
-
-    private SharedPreferences sharedPref;
-    private SharedPreferences.Editor sharedEdit;
 
     public Meal(String name, float calories, float fats, float carbs, float salts) {
 
@@ -21,10 +20,7 @@ public class Meal {
         this.fats = fats;
         this.carbs = carbs;
         this.salts = salts;
-    }
-    public Meal(Context context) {
-        sharedPref = context.getSharedPreferences(MainActivity.NUTRITION_PREFS, Context.MODE_PRIVATE);
-        sharedEdit = sharedPref.edit();
+
     }
 
 

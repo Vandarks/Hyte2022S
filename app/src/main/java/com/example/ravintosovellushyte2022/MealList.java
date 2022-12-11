@@ -17,15 +17,16 @@ public class MealList {
 
     public MealList() {
         meals = new ArrayList<Meal>();
-        /*
+
         meals.add(new Meal("Saarioinen lihamakaroonilaatikko", 133, 4.8f, 15, 0.85f));
         meals.add(new Meal("Ristorante pizza hawaii", 208, 7.6f, 25, 1));
         meals.add(new Meal("Culinea makkarapyttipannu", 169, 7.8f, 19,  0.79f));
 
-         */
+
 
 
     }
+
 
 
 

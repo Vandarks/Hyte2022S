@@ -57,6 +57,9 @@ public class MainActivity extends AppCompatActivity {
         updateUI();
     }
 
+    public void goToSettings(View v) {
+        firstTimeSetup();
+    }
     public void firstTimeSetup(){
         //Goes to the user settings activity
         Intent intent = new Intent(MainActivity.this, UserSettingsActivity.class);

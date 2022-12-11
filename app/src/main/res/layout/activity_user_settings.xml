@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".UserSettingsActivity">
+    tools:context=".UserSettingsActivity"
+    android:background="@color/celeste">
 
     <TextView
         android:id="@+id/setupText"
@@ -78,13 +79,17 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:checked="true"
-            android:text="Male" />
+            android:text="Male"
+            android:buttonTint="@color/dartMouthGreen"
+            />
 
         <RadioButton
             android:id="@+id/femaleBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Female" />
+            android:text="Female"
+            android:buttonTint="@color/dartMouthGreen"
+            />
     </RadioGroup>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
