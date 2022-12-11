@@ -131,7 +131,7 @@
         android:id="@+id/addfood"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:onClick="clearToday"
+        android:onClick="savePremadeNutritions"
         android:text="Add food"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

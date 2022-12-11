@@ -36,9 +36,9 @@
         android:layout_height="wrap_content"
         android:layout_margin="5dp"
         android:text="Grams"
-        app:layout_constraintBottom_toBottomOf="@+id/mealNameInput"
-        app:layout_constraintEnd_toStartOf="@+id/mealNameInput"
-        app:layout_constraintTop_toTopOf="@+id/mealNameInput" />
+        app:layout_constraintBottom_toBottomOf="@+id/gramsInput"
+        app:layout_constraintEnd_toStartOf="@+id/gramsInput"
+        app:layout_constraintTop_toTopOf="@+id/gramsInput" />
 
     <TextView
         android:id="@+id/caloriesText"
@@ -48,7 +48,7 @@
         android:text="Calories"
         app:layout_constraintBottom_toBottomOf="@+id/caloriesInput"
         app:layout_constraintEnd_toStartOf="@+id/caloriesInput"
-        app:layout_constraintTop_toBottomOf="@+id/mealNameInput" />
+        app:layout_constraintTop_toBottomOf="@+id/gramsInput" />
 
     <TextView
         android:id="@+id/carbsText"
@@ -102,7 +102,7 @@
         android:inputType="number|numberDecimal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/mealNameInput" />
+        app:layout_constraintTop_toBottomOf="@+id/gramsInput" />
 
     <EditText
         android:id="@+id/carbsInput"
