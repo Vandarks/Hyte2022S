@@ -30,13 +30,16 @@ public class MealList {
 
 
     public void saveToList(String name) {
+        Log.d("Debug", "Called saveToList");
+
         float calories = sharedPref.getFloat(name + "premadeCalories", 0);
-        Log.d("Debug", "calories logged as " + calories);
         float carbs = sharedPref.getFloat(name + "premadeCarbs", 0);
         float fats = sharedPref.getFloat(name + "premadeFats", 0);
         float salts = sharedPref.getFloat(name + "premadeSalts", 0);
 
         meals.add(new Meal(name,calories, carbs, fats, salts));
+        Log.d("Debug", "meal Added");
+
     }
 
     public ArrayList<Meal> getMeals() {return meals;}

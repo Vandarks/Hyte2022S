@@ -1,16 +1,14 @@
 package com.example.ravintosovellushyte2022;
 
-import static com.example.ravintosovellushyte2022.MainActivity.NUTRITION_PREFS;
+import static com.example.ravintosovellushyte2022.MainActivity.MEAL_PREFS;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.view.View;
+import android.util.Log;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Toast;
 
 public class NewMealActivity extends AppCompatActivity {
 
@@ -28,14 +26,13 @@ public class NewMealActivity extends AppCompatActivity {
     private SharedPreferences sharedPref; //Object to read sharedPreferences
     private SharedPreferences.Editor sharedEdit;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_meal);
 
 
-        sharedPref = getApplicationContext().getSharedPreferences(NUTRITION_PREFS, MODE_PRIVATE);
+        sharedPref = getApplicationContext().getSharedPreferences(MEAL_PREFS, MODE_PRIVATE);
         sharedEdit = sharedPref.edit(); //Editor for writing to general sharedPreferences
 
 
@@ -47,10 +44,14 @@ public class NewMealActivity extends AppCompatActivity {
         saltsInput = findViewById(R.id.saltsInput);
         cancelButton = findViewById(R.id.btnCancel);
 
+        addButton.setOnClickListener(view ->
+                savePremadeNutritions()
+        );
+
     }
 
 
-    public void savePremadeNutritions(View v) {
+    public void savePremadeNutritions() {
         //Values to save
         String name;
         float calories;
@@ -83,12 +84,13 @@ public class NewMealActivity extends AppCompatActivity {
         } else {
             salts = Float.parseFloat(saltsInput.getText().toString());
         }
-        sharedEdit.putString("PremadeName", name);
+        sharedEdit.putString(name+"premadeName", name);
         sharedEdit.putFloat(name + "premadeCalories", calories);
         sharedEdit.putFloat(name + "premadeCarbs", carbs);
         sharedEdit.putFloat(name + "premadeFats", fats);
         sharedEdit.putFloat(name + "premadeSalts", salts);
         sharedEdit.apply();
+        Log.d("Debug", "Called savePremadeNutritions");
         mealList.saveToList(name);
     }
 }

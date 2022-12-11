@@ -22,6 +22,7 @@ public class MainActivity extends AppCompatActivity {
 
     public static final String GENERAL_PREFS = "HyteSovellusGeneral"; //Static name for the shared prefs file for general settings
     public static final String NUTRITION_PREFS = "HyteSovellusNutrition";
+    public static final String MEAL_PREFS = "HyteSovellusMeal";
     private Calendar calendar;
     private SimpleDateFormat dateFormat;
     private String date;

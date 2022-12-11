@@ -1,18 +1,27 @@
 package com.example.ravintosovellushyte2022;
 
+import static com.example.ravintosovellushyte2022.MainActivity.MEAL_PREFS;
+
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
 public class MealDetailActivity extends AppCompatActivity {
 
+    private SharedPreferences sharedPref;
+    private SharedPreferences.Editor sharedEdit;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_meal_detail);
+
+        sharedPref = getApplicationContext().getSharedPreferences(MEAL_PREFS, MODE_PRIVATE);
+        sharedEdit = sharedPref.edit();
 
         Bundle b = getIntent().getExtras();
         int i = b.getInt(SavedMealsActivity.EXTRA, 0);
