@@ -6,14 +6,14 @@
     android:layout_height="match_parent"
     android:background="@color/celeste"
     tools:context=".MainActivity">
+
     <TextView
         android:id="@+id/calPercent"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="TextView"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.926"
+        app:layout_constraintEnd_toStartOf="@+id/guideline3"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/calories"
         app:layout_constraintVertical_bias="0.0" />
@@ -22,10 +22,9 @@
         android:id="@+id/carbsPercent"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="TextView"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.926"
+        app:layout_constraintEnd_toStartOf="@+id/guideline3"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/carbs"
         app:layout_constraintVertical_bias="0.0" />
@@ -34,10 +33,9 @@
         android:id="@+id/fatsPercent"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="TextView"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.926"
+        app:layout_constraintEnd_toStartOf="@+id/guideline3"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/fats"
         app:layout_constraintVertical_bias="0.0" />
@@ -57,12 +55,12 @@
         android:id="@+id/calories"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="32dp"
+        android:layout_margin="0dp"
         android:text="Calories"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.095"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/guideline2"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.2" />
 
@@ -70,12 +68,12 @@
         android:id="@+id/carbs"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="32dp"
+        android:layout_margin="0dp"
         android:text="Carbs"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.09"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/guideline2"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.325" />
 
@@ -83,25 +81,25 @@
         android:id="@+id/fats"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="32dp"
+        android:layout_margin="0dp"
         android:text="Fats"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.09"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintVertical_bias="0.45"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/guideline2"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.45" />
 
     <TextView
         android:id="@+id/salts"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="32dp"
+        android:layout_margin="0dp"
         android:text="Salts"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.09"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/guideline2"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.5725" />
 
@@ -165,10 +163,9 @@
         android:id="@+id/saltsPercent"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="TextView"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.926"
+        app:layout_constraintEnd_toStartOf="@+id/guideline3"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/salts"
         app:layout_constraintVertical_bias="0.0" />
@@ -192,7 +189,6 @@
         android:onClick="addCustomFood"
         android:text="Add Meal"
         android:textColor="@color/white"
-        android:backgroundTint="@color/sacramentoGreen"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.1"
@@ -206,7 +202,6 @@
         android:layout_height="wrap_content"
         android:onClick="editMeal"
         android:text="Edit Meal"
-        android:backgroundTint="@color/sacramentoGreen"
         android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -243,7 +238,6 @@
         android:id="@+id/historyButton"
         android:layout_width="160dp"
         android:layout_height="wrap_content"
-        android:backgroundTint="@color/sacramentoGreen"
         android:text="History"
         android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -258,7 +252,6 @@
         android:layout_width="160dp"
         android:layout_height="wrap_content"
         android:text="Saved Meals"
-        android:backgroundTint="@color/sacramentoGreen"
         android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -266,5 +259,19 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.986" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="33dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_end="33dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
