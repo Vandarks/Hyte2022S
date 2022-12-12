@@ -10,11 +10,17 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 
-
+/**
+ * @author Miiko Majewski
+ * @version 1.1 12/2022
+ */
 public class SavedMealsActivity extends AppCompatActivity {
 
     public static final String EXTRA ="mealIndex";
-
+    /**
+     * This function is called when the app starts.
+     * @param savedInstanceState Previously saved instance of the app's data
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,6 +42,11 @@ public class SavedMealsActivity extends AppCompatActivity {
         });
 
     }
+
+    /**
+     * Used to call
+     * @param v
+     */
     public void addNewMeal(View v) {
         Intent intent = new Intent(SavedMealsActivity.this, NewMealActivity.class);
         startActivity(intent);

@@ -14,6 +14,11 @@ import android.widget.EditText;
 
 import java.util.ArrayList;
 
+/**
+ * CURRENTLY UNUSED
+ * @author Onni Alasaari
+ * @version 1.1 12/2022
+ */
 public class NewMealActivity extends AppCompatActivity {
 
     private MealList mealList;
@@ -32,7 +37,10 @@ public class NewMealActivity extends AppCompatActivity {
     private SharedPreferences sharedPref; //Object to read sharedPreferences
     private SharedPreferences.Editor sharedEdit;
 
-
+    /**
+     * This function is called when the app starts.
+     * @param savedInstanceState Previously saved instance of the app's data
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

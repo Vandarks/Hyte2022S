@@ -10,12 +10,20 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
+/**
+ * MealDetail page
+ * @author Onni Alasaari
+ * @version 1.1 12/2022
+ */
 public class MealDetailActivity extends AppCompatActivity {
 
     private SharedPreferences sharedPref;
     private SharedPreferences.Editor sharedEdit;
     private int i;
-
+    /**
+     * This function is called when the app starts.
+     * @param savedInstanceState Previously saved instance of the app's data
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,10 +56,18 @@ public class MealDetailActivity extends AppCompatActivity {
 
     }
 
+    /**
+     * Returns to the previous activity
+     * @param v Back button
+     */
     public void fuckGoBack(View v) {
         finish();
     }
 
+    /**
+     * Takes the nutritional values of the food and auto-fills them to the AddCustomFoodActivity elements, then starts said activity
+     * @param v Add button
+     */
     public void addFood(View v) {
         Intent intent = new Intent(MealDetailActivity.this, AddCustomFoodActivity.class);
 

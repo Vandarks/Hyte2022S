@@ -20,6 +20,10 @@ import android.widget.Toast;
 "USER_SEX" Is the key where user sex is stored
  */
 
+/**
+ * @author Onni Alasaari
+ * @version 1.1 12/2022
+ */
 public class UserSettingsActivity extends AppCompatActivity {
 
     private SharedPreferences sharedPref;
@@ -28,7 +32,10 @@ public class UserSettingsActivity extends AppCompatActivity {
     private EditText nameInput;
     private EditText ageInput;
     private RadioGroup sexInputGroup;
-
+    /**
+     * This function is called when the app starts.
+     * @param savedInstanceState Previously saved instance of the app's data
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,8 +54,8 @@ public class UserSettingsActivity extends AppCompatActivity {
     }
 
     /**
-     * Tallentaa henkilön tiedot
-     * @param view Save data nappi
+     * Saves user profile data
+     * @param view Save Settings button
      */
     public void SaveData(View view){
 

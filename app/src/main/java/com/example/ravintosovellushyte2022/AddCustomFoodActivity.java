@@ -2,12 +2,18 @@ package com.example.ravintosovellushyte2022;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+/**
+ * AddCustomFoodActivity is responsible for both adding custom nutritional values and editing previously added nutritional values
+ * @author Miiko Majewski
+ * @version 1.1 12/2022
+ */
 public class AddCustomFoodActivity extends AppCompatActivity {
 
     private Button addButton;
@@ -23,6 +29,10 @@ public class AddCustomFoodActivity extends AppCompatActivity {
 
     private NutritionTracker nutritionTracker;
 
+    /**
+     * This function is called when the app starts.
+     * @param savedInstanceState Previously saved instance of the app's data
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -99,6 +109,10 @@ public class AddCustomFoodActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * Saves the nutritional data to the object and returns from this activity
+     * @param v Add food button
+     */
     public void saveData(View v){
         //Values to save
         float grams;
@@ -138,9 +152,14 @@ public class AddCustomFoodActivity extends AppCompatActivity {
         //Passing values to nutritionTracker to calculate.
         nutritionTracker.addNutritions(grams, calories, carbs, fats, salts);
         Toast.makeText(this, "Food added to today's total", Toast.LENGTH_SHORT).show();
-        finish();
+        Intent intent = new Intent(AddCustomFoodActivity.this, MainActivity.class);
+        startActivity(intent);
     }
 
+    /**
+     * Calls nutritionTracker class' clearToday and returns from this activity
+     * @param v Clear Today button
+     */
     public void clearToday(View v){
         nutritionTracker.clearToday();
         Toast.makeText(this, "Today's nutritional values cleared", Toast.LENGTH_SHORT).show();
@@ -228,6 +247,7 @@ public class AddCustomFoodActivity extends AppCompatActivity {
 
 
     public void fuckGoBack(View v) {
-        finish();
+        Intent intent = new Intent(AddCustomFoodActivity.this, MainActivity.class);
+        startActivity(intent);
     }
 }

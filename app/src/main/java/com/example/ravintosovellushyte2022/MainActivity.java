@@ -9,15 +9,17 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+
+import org.w3c.dom.Text;
+
 import java.util.Calendar;
 import java.text.SimpleDateFormat;
 
 /**
- * Pääluokka sovelluksessa
- * @Author Onni Alasaari
+ * Main class of the function
+ * @Author Miiko Majewski
  * @version 1.1 12/2022
  */
-
 public class MainActivity extends AppCompatActivity {
 
     private SharedPreferences sharedPref; //Object to read sharedPreferences
@@ -34,6 +36,10 @@ public class MainActivity extends AppCompatActivity {
 
     private NutritionTracker nutritionTracker;
 
+    /**
+     * This function is called when the app starts.
+     * @param savedInstanceState Previously saved instance of the app's data
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,29 +59,50 @@ public class MainActivity extends AppCompatActivity {
 
         updateUI();
     }
+
+    /**
+     * Resumes the app and calls updateUI
+     */
     @Override
     protected void onResume() {
         super.onResume();
         //Updates UI and Nutrition tracker when coming back
         updateUI();
     }
+
+    /**
+     * Calls firstTimeSetup from button
+     * @param v Settings button
+     */
     public void goToSettings(View v) {
         firstTimeSetup();
     }
+
+    /**
+     * Starts UserSettingsActivity
+     */
     public void firstTimeSetup(){
         //Goes to the user settings activity
         Intent intent = new Intent(MainActivity.this, UserSettingsActivity.class);
         startActivity(intent);
     }
 
+    /**
+     * Starts AddCustomFoodActivity and changes it into edit mode
+     * @param v Edit meal button
+     */
     public void editMeal(View v) {
         Intent intent = new Intent(MainActivity.this, AddCustomFoodActivity.class);
         intent.putExtra("EDIT_MEAL", true);
         startActivity(intent);
     }
 
+    /**
+     * Refreshes all elements and their data from saved preferences
+     */
     public void updateUI(){
         //Updates nutritional tracker values from NUTRITION_PREFS
+
         nutritionTracker.updateFromSavedData();
         date = nutritionTracker.getDate();
         String sex = sharedPref.getString("USER_SEX", "Male");
@@ -106,6 +133,7 @@ public class MainActivity extends AppCompatActivity {
         float fats = nutritionTracker.getFats();
         float salts = nutritionTracker.getSalts();
         //Finds relevant UI element ID's
+        TextView nameTxt = findViewById(R.id.greeting);
         TextView dateTxt = findViewById(R.id.datetext);
         TextView caloriesTxt = findViewById(R.id.calories);
         TextView fatsTxt = findViewById(R.id.fats);
@@ -128,6 +156,7 @@ public class MainActivity extends AppCompatActivity {
 
 
         //Update the contents of the relevant UI elements
+        nameTxt.setText("Hello, " + sharedPref.getString("USER_NAME", "friend") + "!");
         dateTxt.setText(nutritionTracker.getDate());
         caloriesTxt.setText("Calories: " + String.format("%.2f", cal));
         carbsTxt.setText("Carbs: " + String.format("%.2f", carbs) + " g");
@@ -151,6 +180,10 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    /**
+     * Starts AddCustomFoodActivity and changes edit mode off
+     * @param v Add Meal button
+     */
     public void addCustomFood(View v){
         //Starts the add custom food activity
         Intent intent = new Intent(MainActivity.this, AddCustomFoodActivity.class);
@@ -158,11 +191,12 @@ public class MainActivity extends AppCompatActivity {
         MainActivity.this.startActivity(intent);
     }
 
+    /**
+     * Starts SavedMealsActivity
+     * @param v Saved Meals button
+     */
     public void savedMeals(View v) {
         Intent intent = new Intent(MainActivity.this, SavedMealsActivity.class);
         MainActivity.this.startActivity(intent);
     }
-
-    // Onnin kommentti, kirjoitettu 24.11.22 @11:33
-    //Tapsan kommetti 24.11.22 @13:15
 }

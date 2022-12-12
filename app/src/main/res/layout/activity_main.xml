@@ -23,6 +23,18 @@
         app:layout_constraintVertical_bias="0.033" />
 
     <TextView
+        android:id="@+id/greeting"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Hello, name!"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.04" />
+
+    <TextView
         android:id="@+id/calPercent"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -64,7 +76,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.067" />
+        app:layout_constraintVertical_bias="0.1" />
 
     <TextView
         android:id="@+id/calories"
@@ -123,9 +135,9 @@
         style="?android:attr/progressBarStyleHorizontal"
         android:layout_width="125dp"
         android:layout_height="wrap_content"
-        android:scaleY="2"
         android:max="100"
         android:progressTint="@color/dartMouthGreen"
+        android:scaleY="2"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.63"
@@ -138,9 +150,9 @@
         style="?android:attr/progressBarStyleHorizontal"
         android:layout_width="125dp"
         android:layout_height="wrap_content"
-        android:scaleY="2"
         android:max="100"
         android:progressTint="@color/dartMouthGreen"
+        android:scaleY="2"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/calBar"
         app:layout_constraintHorizontal_bias="1.0"
@@ -153,9 +165,9 @@
         style="?android:attr/progressBarStyleHorizontal"
         android:layout_width="125dp"
         android:layout_height="wrap_content"
-        android:scaleY="2"
         android:max="100"
         android:progressTint="@color/dartMouthGreen"
+        android:scaleY="2"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/calBar"
         app:layout_constraintHorizontal_bias="1.0"
@@ -169,8 +181,8 @@
         android:layout_width="125dp"
         android:layout_height="wrap_content"
         android:max="100"
-        android:scaleY="2"
         android:progressTint="@color/dartMouthGreen"
+        android:scaleY="2"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/calBar"
         app:layout_constraintHorizontal_bias="1.0"

@@ -1,9 +1,5 @@
 package com.example.ravintosovellushyte2022;
 
-import android.content.Context;
-import android.content.SharedPreferences;
-
-import java.util.ArrayList;
 
 public class Meal {
     private String name;
