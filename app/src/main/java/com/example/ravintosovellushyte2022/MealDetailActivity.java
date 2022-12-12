@@ -14,6 +14,7 @@ public class MealDetailActivity extends AppCompatActivity {
 
     private SharedPreferences sharedPref;
     private SharedPreferences.Editor sharedEdit;
+    private int i;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,7 +25,7 @@ public class MealDetailActivity extends AppCompatActivity {
         sharedEdit = sharedPref.edit();
 
         Bundle b = getIntent().getExtras();
-        int i = b.getInt(SavedMealsActivity.EXTRA, 0);
+        i = b.getInt(SavedMealsActivity.EXTRA, 0);
 
         TextView mealName = findViewById(R.id.mealName);
         TextView mealCalories = findViewById(R.id.mealCalories);
@@ -55,6 +56,10 @@ public class MealDetailActivity extends AppCompatActivity {
         Intent intent = new Intent(MealDetailActivity.this, AddCustomFoodActivity.class);
 
         intent.putExtra("PREMADE", true);
+        intent.putExtra("CALORIES", MealList.getInstance().getMeal(i).getCalories());
+        intent.putExtra("FATS", MealList.getInstance().getMeal(i).getFats());
+        intent.putExtra("CARBS", MealList.getInstance().getMeal(i).getCarbs());
+        intent.putExtra("SALTS", MealList.getInstance().getMeal(i).getSalts());
         startActivity(intent);
     }
 

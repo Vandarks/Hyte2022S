@@ -20,6 +20,7 @@ public class AddCustomFoodActivity extends AppCompatActivity {
     private Button clearTodayButton;
     private Button editLastButton;
 
+
     private NutritionTracker nutritionTracker;
 
     @Override
@@ -65,11 +66,12 @@ public class AddCustomFoodActivity extends AppCompatActivity {
             clearTodayButton.setAlpha(0f);
             clearTodayButton.setEnabled(false);
         } else if (premade) {
+
             float grams = 0;
-            float calories = nutritionTracker.getPremadeCalories();
-            float carbs = nutritionTracker.getPremadeCarbs();
-            float fats = nutritionTracker.getPremadeFats();
-            float salts = nutritionTracker.getPremadeSalts();
+            float calories = b.getFloat("CALORIES", 0);
+            float carbs = b.getFloat("CARBS", 0);
+            float fats = b.getFloat("FATS", 0);
+            float salts = b.getFloat("SALTS", 0);
             gramsInput.setText(String.format("%.2f", grams));
             caloriesInput.setText(String.format("%.2f", calories));
             carbsInput.setText(String.format("%.2f", carbs));
