@@ -245,7 +245,10 @@ public class AddCustomFoodActivity extends AppCompatActivity {
         finish();
     }
 
-
+    /**
+     * Returns MainActivity
+     * @param v Back button
+     */
     public void fuckGoBack(View v) {
         Intent intent = new Intent(AddCustomFoodActivity.this, MainActivity.class);
         startActivity(intent);
