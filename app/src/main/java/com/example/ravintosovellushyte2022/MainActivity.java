@@ -195,4 +195,11 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(MainActivity.this, SavedMealsActivity.class);
         MainActivity.this.startActivity(intent);
     }
+
+
+    //TODO:DONT PUSH THIS TEST METOD YET
+    public void goToHistory(View v){
+        Intent intent = new Intent(MainActivity.this, HistoryActivity.class);
+        MainActivity.this.startActivity(intent);
+    }
 }

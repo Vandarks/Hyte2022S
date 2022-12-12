@@ -269,6 +269,7 @@
         android:id="@+id/historyButton"
         android:layout_width="160dp"
         android:layout_height="wrap_content"
+        android:onClick="goToHistory"
         android:text="@string/history"
         android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
