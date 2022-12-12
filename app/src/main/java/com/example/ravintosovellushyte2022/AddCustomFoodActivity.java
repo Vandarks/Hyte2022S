@@ -72,7 +72,7 @@ public class AddCustomFoodActivity extends AppCompatActivity {
             float carbs = b.getFloat("CARBS", 0);
             float fats = b.getFloat("FATS", 0);
             float salts = b.getFloat("SALTS", 0);
-            gramsInput.setText(String.format("%.2f", grams));
+            gramsInput.setHint("0");
             caloriesInput.setText(String.format("%.2f", calories));
             carbsInput.setText(String.format("%.2f", carbs));
             fatsInput.setText(String.format("%.2f", fats));

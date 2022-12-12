@@ -29,6 +29,14 @@ public class MealList {
         meals.add(new Meal("Saarioinen lihamakaroonilaatikko", 133, 4.8f, 15, 0.85f));
         meals.add(new Meal("Ristorante pizza hawaii", 208, 7.6f, 25, 1));
         meals.add(new Meal("Culinea makkarapyttipannu", 169, 7.8f, 19,  0.79f));
+        meals.add(new Meal("Saarioinen maksalaatikko", 192, 8.9f, 21, 0.8f));
+        meals.add(new Meal("Rainbow kanakolmioleipä", 253, 13, 24, 1));
+        meals.add(new Meal("Atria jauhelihapizza", 240, 10, 27, 0.9f));
+        meals.add(new Meal("Jalostaja hernekeitto", 126, 4, 15,0.99f ));
+        meals.add(new Meal("Kokkikartano lohikeitto", 118, 7.7f, 6.5f, 0.9f));
+        meals.add(new Meal("Kokkikartano lihakeitto", 71, 1.3f, 6, 0.89f));
+        meals.add(new Meal("Reissumies eväsleipä", 246, 14, 17, 1.3f));
+        meals.add(new Meal("Grandiosa Pepperoni", 269, 13, 24, 1.4f));
 
 
 
