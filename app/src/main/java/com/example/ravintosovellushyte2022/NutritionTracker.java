@@ -89,10 +89,10 @@ public class NutritionTracker {
         this.fats += (grams/100)*fats;
         this.salts += (grams/100)*salts;
         this.timesEaten++;
-        this.previousCalories = (grams/100)*calories;
-        this.previousCarbs = (grams/100)*carbs;
-        this.previousFats = (grams/100)*fats;
-        this.previousSalts = (grams/100)*salts;
+        this.previousCalories = calories;
+        this.previousCarbs = carbs;
+        this.previousFats = fats;
+        this.previousSalts = salts;
         this.previousGrams = grams;
         saveNutritions();
     }
