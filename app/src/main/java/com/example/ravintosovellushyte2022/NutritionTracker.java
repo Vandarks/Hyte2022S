@@ -30,6 +30,10 @@ public class NutritionTracker {
     private SharedPreferences sharedPref; //Object to read sharedPreferences
     private SharedPreferences.Editor sharedEdit; //Object to write to sharedPreferences
 
+    /**
+     * Default constructor for NutritionTracker
+     * @param context Context is used to call shared preferences
+     */
     public NutritionTracker(Context context){
         sharedPref = context.getSharedPreferences(MainActivity.NUTRITION_PREFS, Context.MODE_PRIVATE);
         sharedEdit = sharedPref.edit();
@@ -44,8 +48,7 @@ public class NutritionTracker {
     }
 
     /**
-     * Tallentaa kaikki ravintoarvot
-     *
+     * Saves all current and previous nutritional values to shared preferences     *
      */
     public void saveNutritions(){
         //Save the variables to NUTRITION_PREFS sharedPreferences
@@ -64,6 +67,9 @@ public class NutritionTracker {
         sharedEdit.apply();
     }
 
+    /**
+     * Clears the current days values from shared preferences
+     */
     public void clearToday(){
         //Clears today's nutritional values
         sharedEdit.remove(date + "calories");
@@ -81,7 +87,14 @@ public class NutritionTracker {
         sharedEdit.apply();
     }
 
-    //Add methods
+    /**
+     * Add methods for nutritional values
+     * @param grams amount of grams
+     * @param calories amount of calories per 100 g
+     * @param carbs amount of carbs per 100 g
+     * @param fats amount of fats per 100 g
+     * @param salts amount of salts per 100 g
+     */
     public void addNutritions(float grams, float calories, float carbs, float fats, float salts){
         //Calculates nutritions based on per 100 grams values
         this.calories += (grams/100)*calories;
@@ -96,6 +109,15 @@ public class NutritionTracker {
         this.previousGrams = grams;
         saveNutritions();
     }
+
+    /**
+     * Calculates nutritions based on per 100 g values and calls saveNutritions
+     * @param grams amount of grams
+     * @param calories amount of calories per 100 g
+     * @param carbs amount of carbs per 100 g
+     * @param fats amount of fats per 100 g
+     * @param salts amount of salts per 100 g
+     */
     public void editNutritions(float grams, float calories, float carbs, float fats, float salts){
         //Calculates nutritions based on per 100 grams values
 
@@ -111,6 +133,14 @@ public class NutritionTracker {
         saveNutritions();
     }
 
+    /**
+     * Removes previous meal saved and calls saveNutritions
+     * @param grams amount of grams
+     * @param calories amount of calories per 100 g
+     * @param carbs amount of carbs per 100 g
+     * @param fats amount of fats per 100 g
+     * @param salts amount of salts per 100 g
+     */
     public void removeLastMeal(float grams, float calories, float carbs, float fats,float salts){
         this.calories -= (grams/100)*calories;
         this.carbs -= (grams/100)*carbs;
@@ -128,56 +158,77 @@ public class NutritionTracker {
         saveNutritions();
     }
 
-    public void addCalories(float calories){
-        this.calories += calories;
-    }
-    public void addCarbs(float carbs){
-        this.carbs += carbs;
-    }
-    public void addFats(float fats){
-        this.fats += fats;
-    }
-    public void addSalts(float salts){
-        this.salts += salts;
-    }
-    public void addTimesEaten() {this.timesEaten++;}
-
-    //Get methods
+    /**
+     * Get method for date
+     * @return date
+     */
     public String getDate(){
         return date;
     }
+    /**
+     * Get method for calories
+     * @return calories
+     */
     public float getCalories(){
         return calories;
     }
+    /**
+     * Get method for carbs
+     * @return carbs
+     */
     public float getCarbs(){
         return carbs;
     }
+    /**
+     * Get method for fats
+     * @return fats
+     */
     public float getFats(){
         return fats;
     }
+    /**
+     * Get method for salts
+     * @return salts
+     */
     public float getSalts(){
         return salts;
     }
+    /**
+     * Get method for amount of times eaten
+     * @return Times eaten
+     */
     public int getTimesEaten() {return timesEaten;}
+    /**
+     * Get method for previous calories
+     * @return Previous calories
+     */
     public float getPreviousCalories(){
         return previousCalories;
     }
+    /**
+     * Get method for previous carbs
+     * @return Previous carbs
+     */
     public float getPreviousCarbs(){ return previousCarbs;}
+    /**
+     * Get method for previous fats
+     * @return Previous fats
+     */
     public float getPreviousFats(){
         return previousFats;
     }
+    /**
+     * Get method for previous salts
+     * @return Previous salts
+     */
     public float getPreviousSalts(){
         return previousSalts;
     }
-    public float getPreviousGrams() { return previousGrams;}
-    /*
-    public float getPremadeCalories() {return sharedPref.getFloat("premadeCalories", 0);}
-    public float getPremadeCarbs() {return sharedPref.getFloat("premadeCarbs", 0);}
-    public float getPremadeFats() {return sharedPref.getFloat("premadeFats", 0);}
-    public float getPremadeSalts() {return sharedPref.getFloat("premadeSalts", 0);}
-
+    /**
+     * Get method for previous grams
+     * @return Previous grams
      */
-
+    public float getPreviousGrams() { return previousGrams;}
 
 
 
@@ -187,7 +238,9 @@ public class NutritionTracker {
     public int getYear() {return calendar.get(Calendar.YEAR);}
 
 
-    //Method to get the current date and currently saved nutritional values
+    /**
+     * Method to get the current date and currently saved nutritional values
+     */
     public void updateFromSavedData(){
         date = dateFormat.format(calendar.getTime()); //Getting the date
         calories = sharedPref.getFloat(date + "calories", 0); //Getting calorie amount from SavedPreferences

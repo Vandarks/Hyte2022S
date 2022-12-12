@@ -12,7 +12,6 @@ import android.widget.Toast;
 /**
  * AddCustomFoodActivity is responsible for both adding custom nutritional values and editing previously added nutritional values
  * @author Miiko Majewski
- * @version 1.1 12/2022
  */
 public class AddCustomFoodActivity extends AppCompatActivity {
 
@@ -166,6 +165,10 @@ public class AddCustomFoodActivity extends AppCompatActivity {
         finish();
     }
 
+    /**
+     * Function to remove the previous meal that was saved to todays nutritional value
+     * @param v Remove Meal button
+     */
     public void removeMeal(View v){
         float grams;
         float calories;
@@ -205,6 +208,10 @@ public class AddCustomFoodActivity extends AppCompatActivity {
         finish();
     }
 
+    /**
+     * Function used to apply the edited values to current nutritional values
+     * @param v Edit Food button
+     */
     public void editFood(View v){
         float grams;
         float calories;

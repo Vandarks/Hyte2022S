@@ -44,15 +44,6 @@ public class SavedMealsActivity extends AppCompatActivity {
     }
 
     /**
-     * Used to call
-     * @param v
-     */
-    public void addNewMeal(View v) {
-        Intent intent = new Intent(SavedMealsActivity.this, NewMealActivity.class);
-        startActivity(intent);
-    }
-
-    /**
      * Returns to a previous page
      * @param v current button
      */

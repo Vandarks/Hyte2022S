@@ -8,9 +8,8 @@ import java.util.ArrayList;
 
 
 /**
- * Luokka sisältää valmiit ruuat
+ * This class contains the list of premade foods and their nutritional values
  * @author Onni Alasaari
- * @version 1.1 12/2022
  */
 public class MealList {
     private static final MealList ourInstance = new MealList();
@@ -21,7 +20,7 @@ public class MealList {
     public static MealList getInstance() {return ourInstance;}
 
     /**
-     * Luokan
+     * ListViews premade ArrayList
      */
     public MealList() {
         meals = new ArrayList<Meal>();

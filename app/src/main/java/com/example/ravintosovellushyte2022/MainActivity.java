@@ -19,7 +19,6 @@ import java.text.SimpleDateFormat;
 /**
  * Main class of the function
  * @Author Miiko Majewski
- * @version 1.1 12/2022
  */
 public class MainActivity extends AppCompatActivity {
 
@@ -151,11 +150,6 @@ public class MainActivity extends AppCompatActivity {
         ProgressBar carbsBar = findViewById(R.id.carbsBar);
         ProgressBar fatsBar = findViewById(R.id.fatsBar);
         ProgressBar saltsBar = findViewById(R.id.saltsBar);
-
-
-
-
-
 
         //Update the contents of the relevant UI elements
         nameTxt.setText("Hello, " + sharedPref.getString("USER_NAME", "friend") + "!");
