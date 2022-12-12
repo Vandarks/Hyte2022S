@@ -6,6 +6,12 @@ import android.util.Log;
 
 import java.util.ArrayList;
 
+
+/**
+ * Luokka sisältää valmiit ruuat
+ * @author Onni Alasaari
+ * @version 1.1 12/2022
+ */
 public class MealList {
     private static final MealList ourInstance = new MealList();
     private ArrayList<Meal> meals;
@@ -14,7 +20,9 @@ public class MealList {
 
     public static MealList getInstance() {return ourInstance;}
 
-
+    /**
+     * Luokan
+     */
     public MealList() {
         meals = new ArrayList<Meal>();
 
@@ -29,7 +37,7 @@ public class MealList {
 
 
 
-
+/*
     public void saveToList(String name) {
         Log.d("Debug", "Called saveToList");
 
@@ -42,6 +50,8 @@ public class MealList {
         Log.d("Debug", "meal Added");
 
     }
+
+ */
 
     public ArrayList<Meal> getMeals() {return meals;}
     public Meal getMeal(int i) {return meals.get(i);}

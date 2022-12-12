@@ -2,18 +2,21 @@ package com.example.ravintosovellushyte2022;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.os.Handler;
-import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import java.util.Calendar;
 import java.text.SimpleDateFormat;
+
+/**
+ * Pääluokka sovelluksessa
+ * @Author Onni Alasaari
+ * @version 1.1 12/2022
+ */
 
 public class MainActivity extends AppCompatActivity {
 
@@ -56,7 +59,6 @@ public class MainActivity extends AppCompatActivity {
         //Updates UI and Nutrition tracker when coming back
         updateUI();
     }
-
     public void goToSettings(View v) {
         firstTimeSetup();
     }

@@ -21,7 +21,6 @@ public class NutritionTracker {
     private float previousSalts;
     private float previousGrams;
 
-    private String[][] history;
 
     //Variables to get date
     private Calendar calendar;
@@ -44,8 +43,13 @@ public class NutritionTracker {
         updateFromSavedData();
     }
 
+    /**
+     * Tallentaa kaikki ravintoarvot
+     *
+     */
     public void saveNutritions(){
         //Save the variables to NUTRITION_PREFS sharedPreferences
+        Log.d("Debug", "daten arvo: " + date);
         sharedEdit.putFloat(date + "calories", calories);
         sharedEdit.putFloat(date + "carbs", carbs);
         sharedEdit.putFloat(date + "fats", fats);
@@ -166,10 +170,13 @@ public class NutritionTracker {
         return previousSalts;
     }
     public float getPreviousGrams() { return previousGrams;}
+    /*
     public float getPremadeCalories() {return sharedPref.getFloat("premadeCalories", 0);}
     public float getPremadeCarbs() {return sharedPref.getFloat("premadeCarbs", 0);}
     public float getPremadeFats() {return sharedPref.getFloat("premadeFats", 0);}
     public float getPremadeSalts() {return sharedPref.getFloat("premadeSalts", 0);}
+
+     */
 
 
 

@@ -226,9 +226,6 @@ public class AddCustomFoodActivity extends AppCompatActivity {
         finish();
     }
 
-    public void addMealNutritions() {
-
-    }
 
     public void fuckGoBack(View v) {
         finish();

@@ -28,8 +28,6 @@ public class UserSettingsActivity extends AppCompatActivity {
     private EditText nameInput;
     private EditText ageInput;
     private RadioGroup sexInputGroup;
-    private Button saveButton;
-    private Button clearSaveButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,13 +42,14 @@ public class UserSettingsActivity extends AppCompatActivity {
         nameInput = (EditText) findViewById(R.id.nameInput);
         ageInput = (EditText) findViewById(R.id.ageInput);
         sexInputGroup = (RadioGroup) findViewById(R.id.sexGroup);
-        saveButton = (Button) findViewById(R.id.saveButton);
-        clearSaveButton = (Button) findViewById(R.id.clearSaveButton);
 
         updateUI();
     }
 
-    @SuppressLint("NonConstantResourceId")
+    /**
+     * Tallentaa henkilön tiedot
+     * @param view Save data nappi
+     */
     public void SaveData(View view){
 
         //Get user inputted values
@@ -87,6 +86,10 @@ public class UserSettingsActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * Clears all profile data
+     * @param view Clear saved button
+     */
     public void clearSaveData(View view){
         //LOG deleted data
         Log.d("ClearedName:", sharedPref.getString("USER_NAME", "none"));
@@ -99,6 +102,9 @@ public class UserSettingsActivity extends AppCompatActivity {
         updateUI(); //Updates UI
     }
 
+    /**
+     * Updates visuals
+     */
     public void updateUI(){
         //Updates hint messages to be currently saved values
         nameInput.setHint(sharedPref.getString("USER_NAME", "Name"));

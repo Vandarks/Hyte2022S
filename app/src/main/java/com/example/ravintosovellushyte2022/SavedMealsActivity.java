@@ -3,25 +3,17 @@ package com.example.ravintosovellushyte2022;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
-import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
 
-import java.lang.reflect.Type;
-import java.sql.Array;
-import java.util.ArrayList;
 
 public class SavedMealsActivity extends AppCompatActivity {
 
     public static final String EXTRA ="mealIndex";
-    ArrayList<Meal> arrayList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,6 +41,10 @@ public class SavedMealsActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    /**
+     * Returns to a previous page
+     * @param v current button
+     */
     public void fuckGoBack(View v) {
         finish();
     }

@@ -11,7 +11,6 @@ import android.util.Log;
 import android.widget.Button;
 import android.widget.EditText;
 
-import com.google.gson.Gson;
 
 import java.util.ArrayList;
 
@@ -95,16 +94,10 @@ public class NewMealActivity extends AppCompatActivity {
 
         Log.d("Debug", "Called savePremadeNutritions");
 
-        Gson gson = new Gson();
-        arrayList.add(new Meal(name, calories, fats, carbs, salts));
-        String json = gson.toJson(arrayList);
-        sharedEdit.putString("meal_data", json);
-        sharedEdit.apply();
-        Log.d("Debug", "data imported");
-
 
 
         Intent intent = new Intent(NewMealActivity.this, AddCustomFoodActivity.class);
+
 
     }
 

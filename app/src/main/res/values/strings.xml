@@ -1,7 +1,18 @@
 <resources>
-    <string name="app_name">RavintoSovellusHyte2022</string>
+    <string name="app_name">Nutrition Tracker</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="date">Date</string>
+    <string name="calories">Calories</string>
+    <string name="carbs">Carbs</string>
+    <string name="fats">Fats</string>
+    <string name="salts">Salts</string>
+    <string name="temp">TEMP</string>
+    <string name="meals_today">Meals today</string>
+    <string name="add_meal">Add Meal</string>
+    <string name="edit_meal">Edit Meal</string>
+    <string name="history">History</string>
+    <string name="saved_meals">Saved Meals</string>
 
 
 </resources>
