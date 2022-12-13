@@ -24,16 +24,16 @@ public class NewMealActivity extends AppCompatActivity {
     private void checkForEditMeal() {
         Intent previousIntent = getIntent();
         int passedMealID = previousIntent.getIntExtra(Meal.MEAL_EDIT_EXTRA, -1);
-        selectedMeal = MealList.getInstance().getMeal(passedMealID);
 
-        if(selectedMeal != null){
-            mealNameInput.setText(selectedMeal.getName());
-            caloriesInput.setText(Float.toString(selectedMeal.getCalories()));
-            fatsInput.setText(Float.toString(selectedMeal.getFats()));
-            carbsInput.setText(Float.toString(selectedMeal.getCarbs()));
-            saltsInput.setText(Float.toString(selectedMeal.getSalts()));
-
-
+        if(passedMealID >= 0){
+            selectedMeal = MealList.getInstance().getMeal(passedMealID);
+            if(selectedMeal != null) {
+                mealNameInput.setText(selectedMeal.getName());
+                caloriesInput.setText(Float.toString(selectedMeal.getCalories()));
+                fatsInput.setText(Float.toString(selectedMeal.getFats()));
+                carbsInput.setText(Float.toString(selectedMeal.getCarbs()));
+                saltsInput.setText(Float.toString(selectedMeal.getSalts()));
+            }
         }
     }
 
@@ -68,6 +68,10 @@ public class NewMealActivity extends AppCompatActivity {
             sqLiteManager.updateMealInDatabase(selectedMeal);
         }
         finish();
+    }
+
+    public void remove(View view){
+
     }
 
     public void cancel(View view){

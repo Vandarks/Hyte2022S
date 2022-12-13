@@ -132,10 +132,11 @@
         android:layout_height="wrap_content"
         android:onClick="addMeal"
         android:text="Add food"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/removeButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/saltsInput" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
 
     <Button
         android:id="@+id/btnCancel"
@@ -154,6 +155,7 @@
         android:id="@+id/removeButton"
         android:layout_width="110dp"
         android:layout_height="wrap_content"
+        android:onClick="remove"
         android:text="Remove"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

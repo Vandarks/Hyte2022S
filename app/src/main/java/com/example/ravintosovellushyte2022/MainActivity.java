@@ -50,6 +50,7 @@ public class MainActivity extends AppCompatActivity {
         sharedEdit = sharedPref.edit(); //Editor for writing to general sharedPreferences
 
 
+
         //Create nutritionTracker
         nutritionTracker = new NutritionTracker(getApplicationContext());
 

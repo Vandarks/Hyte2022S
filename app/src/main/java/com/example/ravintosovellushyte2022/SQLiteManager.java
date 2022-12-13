@@ -102,6 +102,12 @@ public class SQLiteManager extends SQLiteOpenHelper {
         }
     }
 
+    public void removeFromDB(int id){
+        SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
+        String idString = Integer.toString(id);
+
+        try (Cursor result = sqLiteDatabase.rawQuery("DELETE FROM " + TABLE_NAME + " WHERE " + ID_FIELD + "=" + idString, null)){}
+    }
 
     public void updateMealInDatabase(Meal meal){
         SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();

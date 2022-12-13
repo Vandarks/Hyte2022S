@@ -20,14 +20,15 @@ public class SavedMealsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_saved_meals);
         initWidget();
-        loadFromDBToMemory();
         setOnClickListener();
+        loadFromDBToMemory();
         // setNoteAdapter();
         mealListView.setAdapter(new ArrayAdapter<>(
                 this,
                 android.R.layout.simple_list_item_1,
                 MealList.getInstance().getMealList()
         ));
+
     }
 
 
@@ -60,10 +61,6 @@ public class SavedMealsActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        mealListView.setAdapter(new ArrayAdapter<>(
-                this,
-                android.R.layout.simple_list_item_1,
-                MealList.getInstance().getMealList()));
     }
     public void goBack(View view){
         finish();
