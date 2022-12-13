@@ -102,7 +102,8 @@ public class SQLiteManager extends SQLiteOpenHelper {
         }
     }
 
-    public void updateNoteInDatabase(Meal meal){
+
+    public void updateMealInDatabase(Meal meal){
         SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
 
         ContentValues contentValues = new ContentValues();

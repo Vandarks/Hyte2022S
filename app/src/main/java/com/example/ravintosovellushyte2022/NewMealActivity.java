@@ -2,6 +2,7 @@ package com.example.ravintosovellushyte2022;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -9,13 +10,31 @@ import android.widget.EditText;
 public class NewMealActivity extends AppCompatActivity {
 
     private EditText mealNameInput, caloriesInput, fatsInput, carbsInput, saltsInput;
+    private Meal selectedMeal;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_meal2);
         initWidgets();
+        checkForEditMeal();
 
+    }
+
+    private void checkForEditMeal() {
+        Intent previousIntent = getIntent();
+        int passedMealID = previousIntent.getIntExtra(Meal.MEAL_EDIT_EXTRA, -1);
+        selectedMeal = MealList.getInstance().getMeal(passedMealID);
+
+        if(selectedMeal != null){
+            mealNameInput.setText(selectedMeal.getName());
+            caloriesInput.setText(Float.toString(selectedMeal.getCalories()));
+            fatsInput.setText(Float.toString(selectedMeal.getFats()));
+            carbsInput.setText(Float.toString(selectedMeal.getCarbs()));
+            saltsInput.setText(Float.toString(selectedMeal.getSalts()));
+
+
+        }
     }
 
     private void initWidgets() {
@@ -34,11 +53,20 @@ public class NewMealActivity extends AppCompatActivity {
         float fats = Float.parseFloat(String.valueOf(fatsInput.getText()));
         float carbs = Float.parseFloat(String.valueOf(carbsInput.getText()));
         float salts = Float.parseFloat(String.valueOf(saltsInput.getText()));
-        int id = MealList.getInstance().getSize();
 
-        Meal newMeal = new Meal(id, name, calories, fats, carbs, salts);
-        MealList.getInstance().addMeal(newMeal);
-        sqLiteManager.addFoodToDatabase(newMeal);
+        if(selectedMeal == null) {
+            int id = MealList.getInstance().getSize();
+            Meal newMeal = new Meal(id, name, calories, fats, carbs, salts);
+            MealList.getInstance().addMeal(newMeal);
+            sqLiteManager.addFoodToDatabase(newMeal);
+        } else {
+            selectedMeal.setName(name);
+            selectedMeal.setCalories(calories);
+            selectedMeal.setFats(fats);
+            selectedMeal.setCarbs(carbs);
+            selectedMeal.setSalts(salts);
+            sqLiteManager.updateMealInDatabase(selectedMeal);
+        }
         finish();
     }
 

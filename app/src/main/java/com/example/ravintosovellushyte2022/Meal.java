@@ -1,6 +1,11 @@
 package com.example.ravintosovellushyte2022;
 
+import java.util.ArrayList;
+
 public class Meal {
+    public static String MEAL_EDIT_EXTRA = "mealEdit";
+    public static ArrayList<Meal> mealsArrayList = new ArrayList<>();
+
     private int id;
     private String name;
     private float calories;
@@ -15,6 +20,15 @@ public class Meal {
         this.fats = fats;
         this.carbs = carbs;
         this.salts = salts;
+    }
+
+    public static Meal getMealForID(int passedMealID) {
+        for(Meal meal : mealsArrayList){
+            if(meal.getId() == passedMealID){
+                return meal;
+            }
+        }
+        return null;
     }
 
     public int getId() {

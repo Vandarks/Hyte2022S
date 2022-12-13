@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
@@ -20,6 +21,7 @@ public class SavedMealsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_saved_meals);
         initWidget();
         loadFromDBToMemory();
+        setOnClickListener();
         // setNoteAdapter();
         mealListView.setAdapter(new ArrayAdapter<>(
                 this,
@@ -41,6 +43,18 @@ public class SavedMealsActivity extends AppCompatActivity {
 
         Intent newMealIntent = new Intent(this, NewMealActivity.class);
         startActivity(newMealIntent);
+    }
+
+    private void setOnClickListener(){
+        mealListView.setOnItemClickListener(new AdapterView.OnItemClickListener(){
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int position, long l){
+                Meal selectedMeal = (Meal) mealListView.getItemAtPosition(position);
+                Intent editMealIntent = new Intent(getApplicationContext(), NewMealActivity.class);
+                editMealIntent.putExtra(Meal.MEAL_EDIT_EXTRA, selectedMeal.getId());
+                startActivity(editMealIntent);
+            }
+        });
     }
 
     @Override
