@@ -62,6 +62,7 @@ public class SavedMealsActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
     }
+
     public void goBack(View view){
         finish();
     }

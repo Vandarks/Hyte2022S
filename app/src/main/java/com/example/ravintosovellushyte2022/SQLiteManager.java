@@ -86,6 +86,7 @@ public class SQLiteManager extends SQLiteOpenHelper {
 
         try (Cursor result = sqLiteDatabase.rawQuery("SELECT * FROM " + TABLE_NAME, null)){
             if(result.getCount() !=0 ){
+                MealList.getInstance().clearMealList();
                 while (result.moveToNext()){
                     int id = result.getInt(1);
                     String name = result.getString(2);

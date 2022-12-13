@@ -69,7 +69,15 @@ public class NewMealActivity extends AppCompatActivity {
         finish();
     }
 
-    public void remove(View view){
+    public void useMeal(View view){
+        Intent intent = new Intent(NewMealActivity.this, AddCustomFoodActivity.class);
+        intent.putExtra("PREMADE", true);
+        intent.putExtra("CALORIES", selectedMeal.getCalories());
+        intent.putExtra("FATS", selectedMeal.getFats());
+        intent.putExtra("CARBS", selectedMeal.getCarbs());
+        intent.putExtra("SALTS", selectedMeal.getSalts());
+
+        startActivity(intent);
 
     }
 

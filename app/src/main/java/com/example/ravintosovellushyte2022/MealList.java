@@ -24,4 +24,6 @@ public class MealList {
     public Meal getMeal(int i){
         return mealsArrayList.get(i);
     }
+    public void clearMealList(){ mealsArrayList.clear();}
+
 }

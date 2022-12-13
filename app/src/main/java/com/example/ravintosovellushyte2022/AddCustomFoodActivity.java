@@ -76,7 +76,6 @@ public class AddCustomFoodActivity extends AppCompatActivity {
             clearTodayButton.setEnabled(false);
         } else if (premade) {
 
-            float grams = 0;
             float calories = b.getFloat("CALORIES", 0);
             float carbs = b.getFloat("CARBS", 0);
             float fats = b.getFloat("FATS", 0);
@@ -93,8 +92,8 @@ public class AddCustomFoodActivity extends AppCompatActivity {
             editLastButton.setEnabled(false);
             addButton.setAlpha(1f);
             addButton.setEnabled(true);
-            clearTodayButton.setAlpha(1f);
-            clearTodayButton.setEnabled(true);
+            clearTodayButton.setAlpha(0f);
+            clearTodayButton.setEnabled(false);
         } else {
 
             removeMealButton.setAlpha(0f);
