@@ -15,7 +15,10 @@ public class HistoryActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_history);
         historyListView = findViewById(R.id.historyListView);
+
+        //Fill the Globalmodel List with HistoryDay objects
         GlobalModel.getInstance().fillHistoryList(getApplicationContext());
+        //Sets ArrayAdapter for the historyListView
         historyListView.setAdapter(new ArrayAdapter<HistoryDay>(
                 this,
                 android.R.layout.simple_list_item_1,
