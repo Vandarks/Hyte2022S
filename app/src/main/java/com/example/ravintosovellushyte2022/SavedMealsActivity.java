@@ -59,9 +59,16 @@ public class SavedMealsActivity extends AppCompatActivity {
     }
 
     @Override
-    protected void onResume() {
-        super.onResume();
+    protected void onStart() {
+        super.onStart();
+        loadFromDBToMemory();
+        mealListView.setAdapter(new ArrayAdapter<>(
+                this,
+                android.R.layout.simple_list_item_1,
+                MealList.getInstance().getMealList()
+        ));
     }
+
 
     public void goBack(View view){
         finish();
