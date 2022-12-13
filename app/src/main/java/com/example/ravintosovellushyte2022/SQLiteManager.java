@@ -32,7 +32,6 @@ public class SQLiteManager extends SQLiteOpenHelper {
 
         }
         return sqLiteManager;
-
     }
 
     @Override

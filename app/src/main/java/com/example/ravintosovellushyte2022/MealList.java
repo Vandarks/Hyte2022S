@@ -6,7 +6,6 @@ import java.util.List;
 public class MealList {
     private List<Meal> mealsArrayList;
     private static final MealList ourInstance = new MealList();
-
     public static MealList getInstance(){
         return ourInstance;
     }

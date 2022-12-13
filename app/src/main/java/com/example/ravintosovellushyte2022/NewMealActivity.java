@@ -18,7 +18,6 @@ public class NewMealActivity extends AppCompatActivity {
         setContentView(R.layout.activity_new_meal2);
         initWidgets();
         checkForEditMeal();
-
     }
 
     private void checkForEditMeal() {

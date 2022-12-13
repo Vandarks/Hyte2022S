@@ -14,6 +14,7 @@
     <string name="history">History</string>
     <string name="saved_meals">Saved Meals</string>
     <string name="Settings">Settings</string>
+    <string name="back">back</string>
 
 
 </resources>
