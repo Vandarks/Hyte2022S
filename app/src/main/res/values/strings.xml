@@ -13,10 +13,7 @@
     <string name="edit_meal">Edit Meal</string>
     <string name="history">History</string>
     <string name="saved_meals">Saved Meals</string>
-    <string name="back" />
-    <string name="addButton" />
-    <string name="add">Add</string>
-    <string name="backButton">back</string>
+    <string name="Settings">Settings</string>
 
 
 </resources>

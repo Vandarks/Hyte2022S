@@ -7,21 +7,6 @@
     android:background="@color/celeste"
     tools:context=".MainActivity">
 
-    <Button
-        android:id="@+id/btnSettings"
-        android:layout_width="66dp"
-        android:layout_height="44dp"
-        android:backgroundTint="@color/battleShipGray"
-        android:onClick="goToSettings"
-        android:text="@string/temp"
-        android:textSize="11sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.907"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.033" />
-
     <TextView
         android:id="@+id/greeting"
         android:layout_width="wrap_content"
@@ -306,5 +291,18 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         app:layout_constraintGuide_end="33dp" />
+
+    <ImageButton
+        android:id="@+id/btnSettings"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_margin="10dp"
+        android:background="#00FFFFFF"
+        android:contentDescription="@string/Settings"
+        android:onClick="goToSettings"
+        android:scaleType="fitCenter"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/cogwheel" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

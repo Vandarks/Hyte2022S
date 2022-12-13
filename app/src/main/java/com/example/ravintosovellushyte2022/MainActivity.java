@@ -111,12 +111,12 @@ public class MainActivity extends AppCompatActivity {
         if (sex.equals("Male")){
             caloriesMax = 2500.00f;
             carbsMax = 125.00f;
-            fatsMax = 750.00f;
+            fatsMax = 80.00f;
             saltsMax = 5.00f;
         } else if (sex.equals("Female")) {
             caloriesMax = 2000.00f;
             carbsMax = 100.00f;
-            fatsMax = 600.00f;
+            fatsMax = 65.00f;
             saltsMax = 5.00f;
         }
         sharedEdit.putFloat("MAXCAL", caloriesMax);
