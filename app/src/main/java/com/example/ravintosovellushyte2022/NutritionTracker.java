@@ -31,6 +31,7 @@ public class NutritionTracker {
     private SharedPreferences.Editor sharedEdit; //Object to write to sharedPreferences
 
     /**
+     * @author Miiko Majewski
      * Default constructor for NutritionTracker
      * @param context Context is used to call shared preferences
      */

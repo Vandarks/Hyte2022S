@@ -2,14 +2,10 @@ package com.example.ravintosovellushyte2022;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.annotation.SuppressLint;
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.provider.MediaStore;
 import android.util.Log;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioGroup;
 import android.widget.Toast;
@@ -22,6 +18,7 @@ import android.widget.Toast;
 
 /**
  * @author Onni Alasaari
+ * Settings of the app. Here the user can put in their display name and age.
  */
 public class UserSettingsActivity extends AppCompatActivity {
 
@@ -53,7 +50,7 @@ public class UserSettingsActivity extends AppCompatActivity {
     }
 
     /**
-     * Saves user profile data
+     * Saves user profile data. Only moves on after data is valid.
      * @param view Save Settings button
      */
     public void SaveData(View view){

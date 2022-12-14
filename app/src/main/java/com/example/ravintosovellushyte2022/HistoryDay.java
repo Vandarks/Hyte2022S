@@ -3,9 +3,8 @@ package com.example.ravintosovellushyte2022;
 import android.content.Context;
 import android.content.SharedPreferences;
 
-import java.util.Date;
-
 /**
+ * @author Miiko Majewski
  * History day class object that contains date-specific nutritional value data
  */
 public class HistoryDay {

@@ -11,15 +11,12 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
-
-import org.w3c.dom.Text;
-
 import java.util.Calendar;
 import java.text.SimpleDateFormat;
 
 /**
- * Main class of the app
  * @Author Miiko Majewski
+ * Main class of the app
  */
 public class MainActivity extends AppCompatActivity {
 
