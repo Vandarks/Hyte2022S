@@ -3,8 +3,8 @@ package com.example.ravintosovellushyte2022;
 import java.util.ArrayList;
 
 /**
- * @author Onni Alasaari
  * Meal class to be used globally in the database and listview
+ * @author Onni Alasaari
  */
 public class Meal {
     public static String MEAL_EDIT_EXTRA = "mealEdit";

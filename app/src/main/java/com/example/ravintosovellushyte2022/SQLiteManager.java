@@ -7,8 +7,8 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 /**
- * @author Tapio Humaljoki
  * A database control class that is used to save and handle custom meals.
+ * @author Tapio Humaljoki
  */
 public class SQLiteManager extends SQLiteOpenHelper {
 

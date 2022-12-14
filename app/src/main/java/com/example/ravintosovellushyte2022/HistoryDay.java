@@ -4,8 +4,8 @@ import android.content.Context;
 import android.content.SharedPreferences;
 
 /**
- * @author Miiko Majewski
  * History day class object that contains date-specific nutritional value data
+ * @author Miiko Majewski
  */
 public class HistoryDay {
 

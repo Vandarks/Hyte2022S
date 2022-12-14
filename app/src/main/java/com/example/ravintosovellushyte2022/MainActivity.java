@@ -15,8 +15,8 @@ import java.util.Calendar;
 import java.text.SimpleDateFormat;
 
 /**
- * @Author Miiko Majewski
  * Main class of the app
+ * @Author Miiko Majewski
  */
 public class MainActivity extends AppCompatActivity {
 

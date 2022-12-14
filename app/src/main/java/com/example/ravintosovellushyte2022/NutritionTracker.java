@@ -7,6 +7,10 @@ import android.util.Log;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
+/**
+ * Nutrition tracker class used for the meals
+ * @author Miiko Majewski
+ */
 public class NutritionTracker {
 
     //Variables to store data
@@ -31,7 +35,6 @@ public class NutritionTracker {
     private SharedPreferences.Editor sharedEdit; //Object to write to sharedPreferences
 
     /**
-     * @author Miiko Majewski
      * Default constructor for NutritionTracker
      * @param context Context is used to call shared preferences
      */

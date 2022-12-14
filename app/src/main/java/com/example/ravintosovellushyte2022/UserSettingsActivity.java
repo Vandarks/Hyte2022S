@@ -17,8 +17,8 @@ import android.widget.Toast;
  */
 
 /**
- * @author Onni Alasaari
  * Settings of the app. Here the user can put in their display name and age.
+ * @author Onni Alasaari
  */
 public class UserSettingsActivity extends AppCompatActivity {
 

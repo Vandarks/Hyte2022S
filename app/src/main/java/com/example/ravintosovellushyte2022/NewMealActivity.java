@@ -10,8 +10,8 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 /**
- * @author Tapio Humaljoki
  * The activity used for creating new premade meals.
+ * @author Tapio Humaljoki
  */
 public class NewMealActivity extends AppCompatActivity {
 

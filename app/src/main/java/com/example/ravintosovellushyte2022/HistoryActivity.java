@@ -8,13 +8,13 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 /**
- * @author Miiko Majewski
  * Displays a list view of the past 7 days of nutritional values. The values in the list contains
  * -date
  * -calories
  * -carbs
  * -fats
  * -salts
+ * @author Miiko Majewski
  */
 public class HistoryActivity extends AppCompatActivity {
 

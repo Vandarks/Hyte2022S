@@ -4,8 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * @author Onni Alasaari
  * The array list class for the preconfigured meals.
+ * @author Onni Alasaari
  */
 public class MealList {
     private List<Meal> mealsArrayList;

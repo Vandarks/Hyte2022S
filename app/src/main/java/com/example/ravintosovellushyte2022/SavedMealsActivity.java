@@ -10,8 +10,8 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 /**
- * @author Tapio Humaljoki
  * A list of user preconfigured meal templates. These can be used, edited or removed from the list at will.
+ * @author Tapio Humaljoki
  */
 public class SavedMealsActivity extends AppCompatActivity {
 

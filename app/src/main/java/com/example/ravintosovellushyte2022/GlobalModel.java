@@ -9,8 +9,8 @@ import java.util.Calendar;
 import java.util.List;
 
 /**
- * @author Miiko Majewski
  * Singleton object for storing history day objects.
+ * @author Miiko Majewski
  */
 public class GlobalModel {
     private List<HistoryDay> historyDayList;
