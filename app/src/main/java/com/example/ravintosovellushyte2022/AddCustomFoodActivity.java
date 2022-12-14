@@ -38,7 +38,7 @@ public class AddCustomFoodActivity extends AppCompatActivity {
         setContentView(R.layout.activity_add_custom_food);
 
         //Finding relevant UI elements by ID
-        addButton = findViewById(R.id.addfood);
+        addButton = findViewById(R.id.addFoodButton);
         gramsInput = findViewById(R.id.gramsInput);
         caloriesInput = findViewById(R.id.caloriesInput);
         carbsInput = findViewById(R.id.carbsInput);

@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/celeste"
     tools:context=".NewMealActivity">
 
     <TextView
@@ -127,8 +128,8 @@
         app:layout_constraintTop_toBottomOf="@+id/fatsInput" />
 
     <Button
-        android:id="@+id/addfood"
-        android:layout_width="110dp"
+        android:id="@+id/addFoodButton"
+        android:layout_width="120dp"
         android:layout_height="wrap_content"
         android:onClick="addMeal"
         android:text="Add food"
@@ -153,7 +154,7 @@
 
     <Button
         android:id="@+id/useButton"
-        android:layout_width="110dp"
+        android:layout_width="120dp"
         android:layout_height="wrap_content"
         android:onClick="useMeal"
         android:text="Use"

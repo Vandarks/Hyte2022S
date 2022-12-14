@@ -5,7 +5,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 /**
  * @author Tapio Humaljoki
@@ -16,6 +18,9 @@ public class NewMealActivity extends AppCompatActivity {
     private EditText mealNameInput, caloriesInput, fatsInput, carbsInput, saltsInput;
     private Meal selectedMeal;
 
+
+    private Button useButton;
+    private Button addButton;
     /**
      * Main function of the activity
      * @param savedInstanceState Presaved state for the app.
@@ -25,6 +30,10 @@ public class NewMealActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_meal2);
         initWidgets();
+        useButton = findViewById(R.id.useButton);
+        addButton = findViewById(R.id.addFoodButton);
+        useButton.setAlpha(0f);
+        useButton.setEnabled(false);
         checkForEditMeal();
     }
 
@@ -43,6 +52,9 @@ public class NewMealActivity extends AppCompatActivity {
                 fatsInput.setText(Float.toString(selectedMeal.getFats()));
                 carbsInput.setText(Float.toString(selectedMeal.getCarbs()));
                 saltsInput.setText(Float.toString(selectedMeal.getSalts()));
+                useButton.setAlpha(1f);
+                useButton.setEnabled(true);
+                addButton.setText("Edit food");
             }
         }
     }
@@ -65,12 +77,42 @@ public class NewMealActivity extends AppCompatActivity {
      */
     public void addMeal(View view){
         SQLiteManager sqLiteManager = SQLiteManager.instanceOfDatabase(this);
-        String name = String.valueOf(mealNameInput.getText());
-        float calories = Float.parseFloat(String.valueOf(caloriesInput.getText()));
-        float fats = Float.parseFloat(String.valueOf(fatsInput.getText()));
-        float carbs = Float.parseFloat(String.valueOf(carbsInput.getText()));
-        float salts = Float.parseFloat(String.valueOf(saltsInput.getText()));
 
+        String name;
+        float calories, carbs, fats, salts;
+
+        //START
+        if(String.valueOf(mealNameInput.getText()).matches("")){
+            Toast.makeText(this, "Missing name!", Toast.LENGTH_SHORT).show();
+            return;
+        } else {
+            name = String.valueOf(mealNameInput.getText());
+        }
+        if(String.valueOf(caloriesInput.getText()).matches("")){
+            Toast.makeText(this, "Missing calories!", Toast.LENGTH_SHORT).show();
+            return;
+        } else {
+            calories = Float.parseFloat(String.valueOf(caloriesInput.getText()));
+        }
+        if(String.valueOf(carbsInput.getText()).matches("")){
+            Toast.makeText(this, "Missing carbs!", Toast.LENGTH_SHORT).show();
+            return;
+        } else {
+            carbs = Float.parseFloat(String.valueOf(carbsInput.getText()));
+        }
+        if(String.valueOf(fatsInput.getText()).matches("")){
+            Toast.makeText(this, "Missing fats!", Toast.LENGTH_SHORT).show();
+            return;
+        } else {
+            fats = Float.parseFloat(String.valueOf(fatsInput.getText()));
+        }
+        if(String.valueOf(saltsInput.getText()).matches("")){
+            Toast.makeText(this, "Missing salts!", Toast.LENGTH_SHORT).show();
+            return;
+        } else {
+            salts = Float.parseFloat(String.valueOf(saltsInput.getText()));
+        }
+        //END
         if(selectedMeal == null) {
             int id = MealList.getInstance().getSize();
             Meal newMeal = new Meal(id, name, calories, fats, carbs, salts);
