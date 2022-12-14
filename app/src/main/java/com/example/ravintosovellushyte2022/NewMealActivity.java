@@ -7,11 +7,19 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 
+/**
+ * @author Tapio Humaljoki
+ * The activity used for creating new premade meals.
+ */
 public class NewMealActivity extends AppCompatActivity {
 
     private EditText mealNameInput, caloriesInput, fatsInput, carbsInput, saltsInput;
     private Meal selectedMeal;
 
+    /**
+     * Main function of the activity
+     * @param savedInstanceState Presaved state for the app.
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -20,6 +28,9 @@ public class NewMealActivity extends AppCompatActivity {
         checkForEditMeal();
     }
 
+    /**
+     * Checks if meal is already created with the same values. If this is the case, lets the user edit the premade values.
+     */
     private void checkForEditMeal() {
         Intent previousIntent = getIntent();
         int passedMealID = previousIntent.getIntExtra(Meal.MEAL_EDIT_EXTRA, -1);
@@ -36,6 +47,9 @@ public class NewMealActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * Initializes the necessary UI elements from the xml file.
+     */
     private void initWidgets() {
 
         mealNameInput = findViewById(R.id.mealNameInput);
@@ -45,6 +59,10 @@ public class NewMealActivity extends AppCompatActivity {
         saltsInput = findViewById(R.id.saltsInput);
     }
 
+    /**
+     * Adds a new premade meal to the list and to the database
+     * @param view Add Food button
+     */
     public void addMeal(View view){
         SQLiteManager sqLiteManager = SQLiteManager.instanceOfDatabase(this);
         String name = String.valueOf(mealNameInput.getText());
@@ -69,6 +87,10 @@ public class NewMealActivity extends AppCompatActivity {
         finish();
     }
 
+    /**
+     * Takes the premade values of the selected meal and puts them into the AddCustomFood activity.
+     * @param view Use button
+     */
     public void useMeal(View view){
         Intent intent = new Intent(NewMealActivity.this, AddCustomFoodActivity.class);
         intent.putExtra("PREMADE", true);
@@ -81,6 +103,10 @@ public class NewMealActivity extends AppCompatActivity {
 
     }
 
+    /**
+     * Returns the user to the SavedMealsActivity.
+     * @param view Cancel button
+     */
     public void cancel(View view){
         finish();
     }

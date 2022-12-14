@@ -10,7 +10,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 /**
- * AddCustomFoodActivity is responsible for both adding custom nutritional values and editing previously added nutritional values
+ * AddCustomFoodActivity is responsible for both adding custom nutritional values and editing previously added nutritional values.
  * @author Miiko Majewski
  */
 public class AddCustomFoodActivity extends AppCompatActivity {

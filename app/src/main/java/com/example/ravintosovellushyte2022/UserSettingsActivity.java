@@ -22,7 +22,6 @@ import android.widget.Toast;
 
 /**
  * @author Onni Alasaari
- * @version 1.1 12/2022
  */
 public class UserSettingsActivity extends AppCompatActivity {
 

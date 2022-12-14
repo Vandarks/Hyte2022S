@@ -18,7 +18,7 @@ import java.util.Calendar;
 import java.text.SimpleDateFormat;
 
 /**
- * Main class of the function
+ * Main class of the app
  * @Author Miiko Majewski
  */
 public class MainActivity extends AppCompatActivity {
@@ -28,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
 
     public static final String GENERAL_PREFS = "HyteSovellusGeneral"; //Static name for the shared prefs file for general settings
     public static final String NUTRITION_PREFS = "HyteSovellusNutrition";
-    public static final String MEAL_PREFS = "HyteSovellusMeal";
+    public static final String MEAL_PREFS = "HyteSovellusMeal"; //depricated since 14.12.2022 @02:30
     private Calendar calendar;
     private SimpleDateFormat dateFormat;
     private String date;
@@ -198,8 +198,10 @@ public class MainActivity extends AppCompatActivity {
         MainActivity.this.startActivity(intent);
     }
 
-
-    //TODO:DONT PUSH THIS TEST METOD YET
+    /**
+     * Starts the HistoryActivity
+     * @param v History button
+     */
     public void goToHistory(View v){
         Intent intent = new Intent(MainActivity.this, HistoryActivity.class);
         MainActivity.this.startActivity(intent);

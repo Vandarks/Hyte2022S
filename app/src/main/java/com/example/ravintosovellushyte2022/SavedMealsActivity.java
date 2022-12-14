@@ -9,12 +9,19 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
-
+/**
+ * A list of user preconfigured meal templates. These can be used, edited or removed from the list at will.
+ * @author Tapio Humaljoki
+ */
 public class SavedMealsActivity extends AppCompatActivity {
 
     private ListView mealListView;
     SQLiteManager sqLiteManager = SQLiteManager.instanceOfDatabase(this);
 
+    /**
+     * onCreate function for the activity
+     * @param savedInstanceState Presaved state for the app
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -22,7 +29,6 @@ public class SavedMealsActivity extends AppCompatActivity {
         initWidget();
         setOnClickListener();
         loadFromDBToMemory();
-        // setNoteAdapter();
         mealListView.setAdapter(new ArrayAdapter<>(
                 this,
                 android.R.layout.simple_list_item_1,
@@ -31,21 +37,33 @@ public class SavedMealsActivity extends AppCompatActivity {
 
     }
 
-
+    /**
+     * Initializes the necessary UI elements from the xml file.
+     */
     private void initWidget() {
         mealListView = findViewById(R.id.mealListView);
     }
 
+    /**
+     * Calls the populateMealListArray function from the database manager class
+     */
     private void loadFromDBToMemory() {
         sqLiteManager.populateMealListArray();
     }
 
+    /**
+     * Transfers to the NewMealActivity
+     * @param view Add Meal button
+     */
     public void newMeal(View view) {
 
         Intent newMealIntent = new Intent(this, NewMealActivity.class);
         startActivity(newMealIntent);
     }
 
+    /**
+     * Allows for listView elements to function as buttons. Buttons take the user to the NewMealActivity, allowing them to edit the preconfigured meals.
+     */
     private void setOnClickListener(){
         mealListView.setOnItemClickListener(new AdapterView.OnItemClickListener(){
             @Override
@@ -58,6 +76,9 @@ public class SavedMealsActivity extends AppCompatActivity {
         });
     }
 
+    /**
+     * onStart function for the SavedMealsActivity. Refreshes the arrayList.
+     */
     @Override
     protected void onStart() {
         super.onStart();
@@ -69,7 +90,10 @@ public class SavedMealsActivity extends AppCompatActivity {
         ));
     }
 
-
+    /**
+     * Ends the activity and returns to the previous activity
+     * @param view Back button
+     */
     public void goBack(View view){
         finish();
     }

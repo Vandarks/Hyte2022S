@@ -5,6 +5,9 @@ import android.content.SharedPreferences;
 
 import java.util.Date;
 
+/**
+ * History day class object that contains date-specific nutritional value data
+ */
 public class HistoryDay {
 
     private SharedPreferences sharedPref; //Object to read sharedPreferences
@@ -23,6 +26,12 @@ public class HistoryDay {
     private String date;
     private String dateName;
 
+    /**
+     * Constructor for a day
+     * @param context Context where the function is called from
+     * @param date Date from where the data is pulled from
+     * @param dateName Name of the day, to be put in the toString function.
+     */
     public HistoryDay(Context context, String date, String dateName){
         this.sharedPref = context.getSharedPreferences(MainActivity.NUTRITION_PREFS, Context.MODE_PRIVATE);
         this.generalPref = context.getSharedPreferences(MainActivity.GENERAL_PREFS, Context.MODE_PRIVATE);
@@ -40,6 +49,10 @@ public class HistoryDay {
         saltsper = (salts/generalPref.getFloat("MAXSALTS", 1))*100;
     }
 
+    /**
+     * Returns all information stored in the object as a humane string.
+     * @return Information to be displayed in the HistoryActivity
+     */
     public String toString(){
         return dateName + " " + date + "\nCalories: " + String.format("%.2f", calories) + "g (" + Math.round(calper) + "%)"+ "\nCarbs: " + String.format("%.2f", carbs) + "g (" + Math.round(carbsper) + "%)" + "\nFats: " + String.format("%.2f", fats) + "g (" + Math.round(fatsper) + "%)" + "\nSalts: " + String.format("%.2f", salts) + "g (" + Math.round(saltsper) + "%)";
     }

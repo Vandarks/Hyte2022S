@@ -9,6 +9,10 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
+/**
+ * @author Miiko Majewski
+ * Singleton object for storing history day objects.
+ */
 public class GlobalModel {
     private List<HistoryDay> historyDayList;
     private static final GlobalModel ourInstance = new GlobalModel();
@@ -24,7 +28,10 @@ public class GlobalModel {
     private SharedPreferences sharedPref;
 
     public static GlobalModel getInstance() {return ourInstance;}
-    //Constructor
+
+    /**
+     * Constructor for the global mode singleton
+     */
     private GlobalModel(){
         historyDayList = new ArrayList<>();
         calendar = Calendar.getInstance(); //Calendar object to get time
@@ -32,6 +39,11 @@ public class GlobalModel {
         dayFormat = new SimpleDateFormat("EEEE");
         createDone = false;
     }
+
+    /**
+     * Fills the object array list with the previous 7 days of nutritional values.
+     * @param context Context where the function is called from
+     */
     public void fillHistoryList(Context context){
         if(createDone == false) {
             historyDayList.clear();
@@ -44,7 +56,18 @@ public class GlobalModel {
             createDone = true;
         }
     }
+
+    /**
+     * Gets the list of days from the object array list
+     * @return List of history day objects
+     */
     public List<HistoryDay> getHistoryDayList(){return historyDayList;}
+
+    /**
+     * Gets a specific day from the object array list
+     * @param i # of the day in the object array list
+     * @return Specific history day object from the object array list
+     */
     public HistoryDay getHistoryDay(int i){return historyDayList.get(i);}
 }
 
